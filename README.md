@@ -13,7 +13,7 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 ## Preview
 
 <!-- Replace YOUR_VERCEL_DOMAIN with your actual Vercel deployment URL -->
-![AI Heatmap](https://YOUR_VERCEL_DOMAIN/api/heatmap)
+![AI Heatmap](https://seunggabi-ai-heatmap/api/heatmap)
 
 ### Variations
 
@@ -45,7 +45,7 @@ npx ai-heatmap update --repo {user}-ai-heatmap
 
 ## SVG API (Vercel)
 
-Deploy this repo to Vercel for a dynamic SVG endpoint. Embed it in any README:
+~~Deploy~~ this repo to Vercel for a dynamic SVG endpoint. Embed it in any README:
 
 ```markdown
 ![AI Heatmap](https://your-app.vercel.app/api/heatmap)

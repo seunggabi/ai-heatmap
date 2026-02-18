@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -59,8 +60,23 @@ switch (command) {
       console.log("Installing Vercel CLI...");
       execSync("npm install -g vercel", { stdio: "inherit" });
     }
-    execSync(`vercel --prod ${args.join(" ")}`, {
-      cwd: root,
+    // Determine target directory: argument > auto-detect {user}-ai-heatmap > cwd
+    let deployDir = process.cwd();
+    const repoArg = args[0];
+    if (repoArg) {
+      deployDir = resolve(process.cwd(), repoArg);
+    } else {
+      try {
+        const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+        const autoDir = resolve(process.cwd(), `${owner}-ai-heatmap`);
+        if (existsSync(autoDir)) {
+          deployDir = autoDir;
+        }
+      } catch {}
+    }
+    console.log(`Deploying from ${deployDir}...`);
+    execSync(`vercel --prod`, {
+      cwd: deployDir,
       stdio: "inherit",
     });
     break;
