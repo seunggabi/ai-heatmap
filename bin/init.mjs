@@ -3,6 +3,7 @@ import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync, copyFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createInterface } from "node:readline";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const templateRoot = resolve(__dirname, "..");
@@ -135,16 +136,22 @@ readmeLines.push(
   "## Usage",
   "",
   "```bash",
-  "npx ai-heatmap@latest update",
+  "npx --yes ai-heatmap@latest update",
+  "```",
+  "",
+  "### Cron (daily update)",
+  "",
+  "```bash",
+  "0 0 * * * npx --yes ai-heatmap@latest update",
   "```",
   "",
   "## Dynamic SVG (by Vercel)",
   "",
-  "```bash",
-  "npx ai-heatmap@latest deploy",
-  "```",
-  "",
   `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue)`,
+  "",
+  "```bash",
+  "npx --yes ai-heatmap@latest deploy",
+  "```",
   "",
 );
 writeFileSync(resolve(targetDir, "README.md"), readmeLines.join("\n"));
@@ -204,3 +211,17 @@ Done! Your heatmap repo is ready:
   npm install
   npm run dev             # Preview locally
 `);
+
+// Ask to star the repo
+const rl = createInterface({ input: process.stdin, output: process.stdout });
+rl.question("⭐ Star https://github.com/seunggabi/ai-heatmap ? (y/n) ", (answer) => {
+  rl.close();
+  if (answer.toLowerCase() === "y") {
+    try {
+      execSync("gh api user/starred/seunggabi/ai-heatmap -X PUT", { stdio: "ignore" });
+      console.log("Thanks for starring! ⭐");
+    } catch {
+      console.log("Star skipped (gh CLI not available or auth needed).");
+    }
+  }
+});
