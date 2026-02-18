@@ -140,11 +140,11 @@ readmeLines.push(
   "",
   "## Dynamic SVG (by Vercel)",
   "",
-  `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue)`,
-  "",
   "```bash",
   "npx ai-heatmap@latest deploy",
   "```",
+  "",
+  `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue)`,
   "",
 );
 writeFileSync(resolve(targetDir, "README.md"), readmeLines.join("\n"));
