@@ -20,7 +20,28 @@ interface Activity {
   modelBreakdowns?: ModelBreakdown[];
 }
 
-interface CalendarOptions {
+interface StatsConfig {
+  dailyAvg: boolean;
+  weeklyAvg: boolean;
+  peak: boolean;
+  activeDays: boolean;
+}
+
+interface HeatmapConfig {
+  colorScheme?: string;
+  theme?: string;
+  blockSize?: number;
+  blockMargin?: number;
+  blockRadius?: number;
+  bg?: string;
+  textColor?: string;
+  start?: string;
+  end?: string;
+  stats?: boolean | StatsConfig;
+  weekday?: boolean;
+}
+
+interface AppOptions {
   blockSize: number;
   blockMargin: number;
   blockRadius: number;
@@ -31,9 +52,22 @@ interface CalendarOptions {
   showWeekdayLabels: boolean;
   weekStart: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   colorScheme: "light" | "dark";
+  theme: string;
+  bg: string;
+  textColor: string;
+  stats: StatsConfig;
+  weekday: boolean;
 }
 
-const DEFAULT_OPTIONS: CalendarOptions = {
+const THEMES: Record<string, string[]> = {
+  light: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"],
+  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+  blue: ["#ebedf0", "#c0ddf9", "#73b3f3", "#3886e1", "#1b4f91"],
+  orange: ["#ebedf0", "#ffdf80", "#ffa742", "#e87d2f", "#ac5219"],
+  pink: ["#ebedf0", "#ffc0cb", "#ff69b4", "#ff1493", "#c71585"],
+};
+
+const DEFAULT_OPTIONS: AppOptions = {
   blockSize: 12,
   blockMargin: 3,
   blockRadius: 2,
@@ -44,52 +78,87 @@ const DEFAULT_OPTIONS: CalendarOptions = {
   showWeekdayLabels: true,
   weekStart: 0,
   colorScheme: "light",
+  theme: "",
+  bg: "",
+  textColor: "",
+  stats: { dailyAvg: true, weeklyAvg: true, peak: true, activeDays: true },
+  weekday: true,
 };
 
-interface HeatmapConfig {
-  colorScheme?: string;
-  blockSize?: number;
-  blockMargin?: number;
-  blockRadius?: number;
-  start?: string;
-  end?: string;
-}
-
-function parseOptions(config: HeatmapConfig = {}): CalendarOptions {
+function parseOptions(config: HeatmapConfig = {}): AppOptions {
   const params = new URLSearchParams(window.location.search);
-  const opts: CalendarOptions = {
+
+  // Merge config defaults
+  const opts: AppOptions = {
     ...DEFAULT_OPTIONS,
     ...(config.blockSize != null && { blockSize: config.blockSize }),
     ...(config.blockMargin != null && { blockMargin: config.blockMargin }),
     ...(config.blockRadius != null && { blockRadius: config.blockRadius }),
     ...((config.colorScheme === "light" || config.colorScheme === "dark") && { colorScheme: config.colorScheme }),
+    ...(config.theme && { theme: config.theme }),
+    ...(config.bg && { bg: config.bg }),
+    ...(config.textColor && { textColor: config.textColor }),
+    ...(config.weekday != null && { weekday: config.weekday }),
   };
 
-  const bool = (key: keyof CalendarOptions) => {
-    const v = params.get(key);
-    if (v !== null) {
-      (opts as Record<string, unknown>)[key] = v === "true" || v === "1";
+  // Stats config
+  if (config.stats != null) {
+    if (typeof config.stats === "boolean") {
+      const v = config.stats;
+      opts.stats = { dailyAvg: v, weeklyAvg: v, peak: v, activeDays: v };
+    } else {
+      opts.stats = { ...DEFAULT_OPTIONS.stats, ...config.stats };
     }
+  }
+
+  // Query string overrides
+  const bool = (key: string) => {
+    const v = params.get(key);
+    if (v !== null) return v === "true" || v === "1";
+    return undefined;
   };
-  const num = (key: keyof CalendarOptions) => {
+  const num = (key: string) => {
     const v = params.get(key);
-    if (v !== null && !isNaN(Number(v))) {
-      (opts as Record<string, unknown>)[key] = Number(v);
-    }
+    if (v !== null && !isNaN(Number(v))) return Number(v);
+    return undefined;
   };
 
-  num("blockSize");
-  num("blockMargin");
-  num("blockRadius");
-  num("fontSize");
-  bool("hideColorLegend");
-  bool("hideMonthLabels");
-  bool("hideTotalCount");
-  bool("showWeekdayLabels");
-  num("weekStart");
+  const bs = num("blockSize"); if (bs != null) opts.blockSize = bs;
+  const bm = num("blockMargin"); if (bm != null) opts.blockMargin = bm;
+  const br = num("blockRadius"); if (br != null) opts.blockRadius = br;
+  const fs = num("fontSize"); if (fs != null) opts.fontSize = fs;
+  const ws = num("weekStart"); if (ws != null) opts.weekStart = ws as AppOptions["weekStart"];
+
+  const hcl = bool("hideColorLegend"); if (hcl != null) opts.hideColorLegend = hcl;
+  const hml = bool("hideMonthLabels"); if (hml != null) opts.hideMonthLabels = hml;
+  const htc = bool("hideTotalCount"); if (htc != null) opts.hideTotalCount = htc;
+  const swl = bool("showWeekdayLabels"); if (swl != null) opts.showWeekdayLabels = swl;
 
   const cs = params.get("colorScheme");
   if (cs === "light" || cs === "dark") opts.colorScheme = cs;
+
+  const th = params.get("theme");
+  if (th) opts.theme = th;
+
+  const bg = params.get("bg");
+  if (bg) opts.bg = bg;
+
+  const tc = params.get("textColor");
+  if (tc) opts.textColor = tc;
+
+  // Stats query string: stats=false disables all, or individual: dailyAvg=false
+  const statsParam = bool("stats");
+  if (statsParam === false) {
+    opts.stats = { dailyAvg: false, weeklyAvg: false, peak: false, activeDays: false };
+  } else {
+    const da = bool("dailyAvg"); if (da != null) opts.stats.dailyAvg = da;
+    const wa = bool("weeklyAvg"); if (wa != null) opts.stats.weeklyAvg = wa;
+    const pk = bool("peak"); if (pk != null) opts.stats.peak = pk;
+    const ad = bool("activeDays"); if (ad != null) opts.stats.activeDays = ad;
+  }
+
+  const wd = bool("weekday");
+  if (wd != null) opts.weekday = wd;
 
   return opts;
 }
@@ -112,6 +181,8 @@ function shortModel(name: string) {
     .replace(/-\d{8}$/, "")
     .replace(/-preview$/, "");
 }
+
+const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function App() {
   const [data, setData] = useState<Activity[]>([]);
@@ -169,20 +240,45 @@ export default function App() {
     return true;
   });
 
-  const activeDays = filtered.filter((d) => d.count > 0);
+  const activeDaysData = filtered.filter((d) => d.count > 0);
   const totalCost = filtered.reduce((s, d) => s + d.count, 0);
-  const dailyAvg = activeDays.length ? totalCost / activeDays.length : 0;
+  const dailyAvg = activeDaysData.length ? totalCost / activeDaysData.length : 0;
   const weeks = Math.max(1, Math.ceil(filtered.length / 7));
   const weeklyAvg = totalCost / weeks;
-  const peak = activeDays.reduce((max, d) => (d.count > max.count ? d : max), activeDays[0]);
+  const peak = activeDaysData.reduce((max, d) => (d.count > max.count ? d : max), activeDaysData[0]);
   const firstYear = filtered[0]?.date.slice(0, 4);
   const lastYear = filtered[filtered.length - 1]?.date.slice(0, 4);
   const yearLabel = firstYear === lastYear ? firstYear : `${firstYear}~${lastYear}`;
+
+  // Resolve theme colors
+  const effectiveTheme = options.theme || options.colorScheme;
+  const themeColors = THEMES[effectiveTheme] || THEMES[options.colorScheme];
+
+  // Weekday averages
+  const weekdayTotals = [0, 0, 0, 0, 0, 0, 0];
+  const weekdayCounts = [0, 0, 0, 0, 0, 0, 0];
+  for (const d of filtered) {
+    if (d.count > 0) {
+      const dow = new Date(d.date).getDay();
+      weekdayTotals[dow] += d.count;
+      weekdayCounts[dow]++;
+    }
+  }
+  const weekdayAvgs = weekdayTotals.map((t, i) => weekdayCounts[i] ? t / weekdayCounts[i] : 0);
+  const maxWeekdayAvg = Math.max(...weekdayAvgs);
+
+  const hasStats = options.stats.dailyAvg || options.stats.weeklyAvg || options.stats.peak || options.stats.activeDays;
+
+  const containerStyle: React.CSSProperties = {
+    ...(options.bg && { background: options.bg }),
+    ...(options.textColor && { color: options.textColor }),
+  };
 
   return (
     <div
       className="container"
       data-color-scheme={options.colorScheme}
+      style={containerStyle}
     >
       <h1>AI Usage Heatmap</h1>
       <p className="summary">
@@ -205,8 +301,8 @@ export default function App() {
           totalCount: "{{count}} USD spent in {{year}}",
         }}
         theme={{
-          light: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"],
-          dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+          light: themeColors,
+          dark: options.colorScheme === "dark" ? themeColors : THEMES.dark,
         }}
         renderBlock={(block, activity) => {
           const a = activity as Activity;
@@ -230,23 +326,54 @@ export default function App() {
       />
       <ReactTooltip id="heatmap-tooltip" />
 
-      {activeDays.length > 0 && (
+      {hasStats && activeDaysData.length > 0 && (
         <div className="stats">
-          <div className="stat-item">
-            <span className="stat-value">{formatUSD(dailyAvg)}</span>
-            <span className="stat-label">Daily Avg</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">{formatUSD(weeklyAvg)}</span>
-            <span className="stat-label">Weekly Avg</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">{formatUSD(peak?.count ?? 0)}</span>
-            <span className="stat-label">Peak ({peak?.date})</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-value">{activeDays.length}</span>
-            <span className="stat-label">Active Days</span>
+          {options.stats.dailyAvg && (
+            <div className="stat-item">
+              <span className="stat-value">{formatUSD(dailyAvg)}</span>
+              <span className="stat-label">Daily Avg</span>
+            </div>
+          )}
+          {options.stats.weeklyAvg && (
+            <div className="stat-item">
+              <span className="stat-value">{formatUSD(weeklyAvg)}</span>
+              <span className="stat-label">Weekly Avg</span>
+            </div>
+          )}
+          {options.stats.peak && peak && (
+            <div className="stat-item">
+              <span className="stat-value">{formatUSD(peak.count)}</span>
+              <span className="stat-label">Peak ({peak.date})</span>
+            </div>
+          )}
+          {options.stats.activeDays && (
+            <div className="stat-item">
+              <span className="stat-value">{activeDaysData.length}</span>
+              <span className="stat-label">Active Days</span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {options.weekday && maxWeekdayAvg > 0 && (
+        <div className="weekday-chart">
+          <h3>Average by Weekday</h3>
+          <div className="weekday-bars">
+            {weekdayAvgs.map((avg, i) => (
+              <div key={i} className="weekday-bar-item">
+                <div className="weekday-bar-wrapper">
+                  <div
+                    className="weekday-bar"
+                    style={{
+                      height: `${maxWeekdayAvg ? (avg / maxWeekdayAvg) * 100 : 0}%`,
+                      backgroundColor: themeColors[Math.min(4, Math.ceil((avg / maxWeekdayAvg) * 4))],
+                    }}
+                  />
+                </div>
+                <span className="weekday-label">{DAY_LABELS[i]}</span>
+                <span className="weekday-value">{formatUSD(avg)}</span>
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -258,16 +385,20 @@ export default function App() {
             <tr><th>Param</th><th>Default</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><td>blockSize</td><td>14</td><td>Block pixel size</td></tr>
-            <tr><td>blockMargin</td><td>4</td><td>Gap between blocks</td></tr>
-            <tr><td>blockRadius</td><td>2</td><td>Block border radius</td></tr>
-            <tr><td>fontSize</td><td>14</td><td>Label font size</td></tr>
-            <tr><td>hideColorLegend</td><td>false</td><td>Hide color legend</td></tr>
-            <tr><td>hideMonthLabels</td><td>false</td><td>Hide month labels</td></tr>
-            <tr><td>hideTotalCount</td><td>false</td><td>Hide total count</td></tr>
-            <tr><td>showWeekdayLabels</td><td>true</td><td>Show weekday labels</td></tr>
-            <tr><td>weekStart</td><td>0</td><td>Week start day (0=Sun)</td></tr>
             <tr><td>colorScheme</td><td>light</td><td>light / dark</td></tr>
+            <tr><td>theme</td><td>-</td><td>light / dark / blue / orange / pink</td></tr>
+            <tr><td>blockSize</td><td>12</td><td>Block pixel size</td></tr>
+            <tr><td>blockMargin</td><td>3</td><td>Gap between blocks</td></tr>
+            <tr><td>blockRadius</td><td>2</td><td>Block border radius</td></tr>
+            <tr><td>fontSize</td><td>12</td><td>Label font size</td></tr>
+            <tr><td>bg</td><td>-</td><td>Background color</td></tr>
+            <tr><td>textColor</td><td>-</td><td>Text color</td></tr>
+            <tr><td>stats</td><td>true</td><td>Show/hide all stats</td></tr>
+            <tr><td>dailyAvg</td><td>true</td><td>Show daily average</td></tr>
+            <tr><td>weeklyAvg</td><td>true</td><td>Show weekly average</td></tr>
+            <tr><td>peak</td><td>true</td><td>Show peak day</td></tr>
+            <tr><td>activeDays</td><td>true</td><td>Show active days count</td></tr>
+            <tr><td>weekday</td><td>true</td><td>Show weekday average chart</td></tr>
             <tr><td>start</td><td>-</td><td>Start date (YYYY-MM-DD)</td></tr>
             <tr><td>end</td><td>-</td><td>End date (YYYY-MM-DD)</td></tr>
           </tbody>
