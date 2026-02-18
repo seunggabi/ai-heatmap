@@ -99,22 +99,9 @@ copyFileSync(
 
 // Create public/ with config
 mkdirSync(resolve(targetDir, "public"), { recursive: true });
-const defaultConfig = {
-  colorScheme: "light",
-  theme: "",
-  blockSize: 16,
-  blockMargin: 4,
-  blockRadius: 3,
-  bg: "",
-  textColor: "",
-  start: "",
-  end: "",
-  stats: true,
-  weekday: true,
-};
-writeFileSync(
+copyFileSync(
+  resolve(templateRoot, "public/heatmap.config.json"),
   resolve(targetDir, "public/heatmap.config.json"),
-  JSON.stringify(defaultConfig, null, 2),
 );
 
 // README.md
