@@ -24,8 +24,8 @@ Generate options:
 Examples:
   npx ai-heatmap init my-ai-heatmap
   npx ai-heatmap generate --since 20260101
-  npx ai-heatmap push --repo seunggabi/my-ai-heatmap
-  npx ai-heatmap update --repo seunggabi/my-ai-heatmap
+  npx ai-heatmap push --repo my-ai-heatmap
+  npx ai-heatmap update --repo my-ai-heatmap
 `;
 
 switch (command) {

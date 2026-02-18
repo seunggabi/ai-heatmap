@@ -30,13 +30,16 @@ GitHub-style heatmap for your AI usage costs. Powered by [ccusage](https://githu
 npx ai-heatmap generate
 
 # Init a new GitHub Pages repo
+npx ai-heatmap init
 npx ai-heatmap init my-ai-heatmap
 
 # Push data to repo
-npx ai-heatmap push --repo owner/my-ai-heatmap
+npx ai-heatmap push
+npx ai-heatmap push --repo my-ai-heatmap
 
 # Generate + push in one step
-npx ai-heatmap update --repo owner/my-ai-heatmap
+npx ai-heatmap update
+npx ai-heatmap update --repo my-ai-heatmap
 ```
 
 ## SVG API (Vercel)
