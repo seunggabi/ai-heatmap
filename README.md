@@ -190,7 +190,8 @@ npx --yes ai-heatmap@latest update
 
 1. Import this repo on [vercel.com](https://vercel.com)
 2. Deploy (zero config — `vercel.json` included)
-3. Use the deployed URL for dynamic SVG embeds
+3. Make public: Project Settings > Deployment Protection > Vercel Authentication > **OFF**
+4. Use the deployed URL for dynamic SVG embeds
 
 ## Local Development
 
