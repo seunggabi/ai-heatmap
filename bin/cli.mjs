@@ -14,8 +14,8 @@ ai-heatmap - AI usage cost heatmap
 Commands:
   init [repo-name]        Create a new heatmap GitHub Pages repo
   generate [options]      Generate data.json from ccusage
-  push [--repo <owner/repo>]  Push data.json to target repo (default: {user}/my-ai-heatmap)
-  update [--repo <owner/repo>]  generate + push combined (default: {user}/my-ai-heatmap)
+  push [--repo <owner/repo>]  Push data.json to target repo (default: {user}/{user}-ai-heatmap)
+  update [--repo <owner/repo>]  generate + push combined (default: {user}/{user}-ai-heatmap)
   deploy                     Deploy to Vercel (SVG API endpoint)
 
 Generate options:
@@ -23,10 +23,10 @@ Generate options:
   --until YYYYMMDD        End date
 
 Examples:
-  npx ai-heatmap init my-ai-heatmap
+  npx ai-heatmap init {user}-ai-heatmap
   npx ai-heatmap generate --since 20260101
-  npx ai-heatmap push --repo my-ai-heatmap
-  npx ai-heatmap update --repo my-ai-heatmap
+  npx ai-heatmap push --repo {user}-ai-heatmap
+  npx ai-heatmap update --repo {user}-ai-heatmap
   npx ai-heatmap deploy
 `;
 

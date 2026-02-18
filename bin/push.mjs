@@ -14,7 +14,7 @@ let repo = repoIdx !== -1 ? args[repoIdx + 1] : null;
 try {
   const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
   if (!repo) {
-    repo = `${owner}/my-ai-heatmap`;
+    repo = `${owner}/${owner}-ai-heatmap`;
     console.log(`No --repo specified, using default: ${repo}`);
   } else if (!repo.includes("/")) {
     repo = `${owner}/${repo}`;
@@ -22,7 +22,7 @@ try {
 } catch {
   if (!repo || !repo.includes("/")) {
     console.error("Usage: ai-heatmap push --repo <owner/repo>");
-    console.error("Example: ai-heatmap push --repo <owner>/my-ai-heatmap");
+    console.error("Example: ai-heatmap push --repo <owner>/<owner>-ai-heatmap");
     process.exit(1);
   }
 }
