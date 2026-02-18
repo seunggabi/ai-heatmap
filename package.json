@@ -1,10 +1,10 @@
 {
   "name": "ai-heatmap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AI usage cost heatmap powered by ccusage + react-activity-calendar",
   "type": "module",
   "bin": {
-    "ai-heatmap": "./bin/cli.mjs"
+    "ai-heatmap": "bin/cli.mjs"
   },
   "files": [
     "bin/",
@@ -14,6 +14,7 @@
     "index.html",
     "vite.config.ts",
     "tsconfig.json",
+    ".gitignore",
     ".github/"
   ],
   "scripts": {
