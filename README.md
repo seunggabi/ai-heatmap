@@ -1,4 +1,4 @@
-<img width="1549" height="854" alt="image" src="https://github.com/user-attachments/assets/5786662a-ad4b-4d16-91e0-0cfda22c068f" /># AI Heatmap
+# AI Heatmap
 
 [![npm version](https://img.shields.io/npm/v/ai-heatmap?color=cb3837&logo=npm)](https://www.npmjs.com/package/ai-heatmap)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
