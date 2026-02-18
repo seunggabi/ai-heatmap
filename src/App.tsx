@@ -183,6 +183,7 @@ function shortModel(name: string) {
 }
 
 const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAY_SHORT = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 export default function App() {
   const [data, setData] = useState<Activity[]>([]);
@@ -293,12 +294,12 @@ export default function App() {
         fontSize={options.fontSize}
         hideColorLegend={options.hideColorLegend}
         hideMonthLabels={options.hideMonthLabels}
-        hideTotalCount={true}
+        hideTotalCount={options.hideTotalCount}
         showWeekdayLabels={options.showWeekdayLabels}
         weekStart={options.weekStart}
         colorScheme={options.colorScheme}
         labels={{
-          totalCount: "{{count}} USD spent in {{year}}",
+          totalCount: `${formatUSD(totalCost)} spent in {{year}}`,
         }}
         theme={{
           light: themeColors,
@@ -308,7 +309,7 @@ export default function App() {
           const a = activity as Activity;
           if (a.count === 0) return block;
           const lines = [
-            `<strong>${a.date}</strong>`,
+            `<strong>${a.date} (${DAY_SHORT[new Date(a.date).getDay()]})</strong>`,
             `Cost: ${formatUSD(a.count)}`,
             a.inputTokens != null ? `In: ${formatTokens(a.inputTokens)} / Out: ${formatTokens(a.outputTokens ?? 0)}` : "",
             a.totalTokens ? `Total: ${formatTokens(a.totalTokens)}` : "",
