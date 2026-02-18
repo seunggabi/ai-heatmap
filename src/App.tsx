@@ -2,23 +2,8 @@ import { useEffect, useState } from "react";
 import { ActivityCalendar } from "react-activity-calendar";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
-
-interface ModelBreakdown {
-  model: string;
-  cost: number;
-}
-
-interface Activity {
-  date: string;
-  count: number;
-  level: number;
-  inputTokens?: number;
-  outputTokens?: number;
-  totalTokens?: number;
-  cacheHitRate?: number;
-  modelsUsed?: string[];
-  modelBreakdowns?: ModelBreakdown[];
-}
+import { THEMES, type Activity } from "./lib/constants";
+import { formatUSD, formatTokens, calcWeekdayStats } from "./lib/utils";
 
 interface StatsConfig {
   dailyAvg: boolean;
@@ -58,14 +43,6 @@ interface AppOptions {
   stats: StatsConfig;
   weekday: boolean;
 }
-
-const THEMES: Record<string, string[]> = {
-  light: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"],
-  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-  blue: ["#ebedf0", "#c0ddf9", "#73b3f3", "#3886e1", "#1b4f91"],
-  orange: ["#ebedf0", "#ffdf80", "#ffa742", "#e87d2f", "#ac5219"],
-  pink: ["#ebedf0", "#ffc0cb", "#ff69b4", "#ff1493", "#c71585"],
-};
 
 const DEFAULT_OPTIONS: AppOptions = {
   blockSize: 12,
@@ -163,18 +140,6 @@ function parseOptions(config: HeatmapConfig = {}): AppOptions {
   return opts;
 }
 
-function commas(n: number) {
-  return n.toLocaleString("en-US");
-}
-
-function formatUSD(n: number) {
-  return `$${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-}
-
-function formatTokens(n: number) {
-  return commas(n);
-}
-
 function shortModel(name: string) {
   return name
     .replace("claude-", "")
@@ -256,17 +221,7 @@ export default function App() {
   const themeColors = THEMES[effectiveTheme] || THEMES[options.colorScheme];
 
   // Weekday averages
-  const weekdayTotals = [0, 0, 0, 0, 0, 0, 0];
-  const weekdayCounts = [0, 0, 0, 0, 0, 0, 0];
-  for (const d of filtered) {
-    if (d.count > 0) {
-      const dow = new Date(d.date).getDay();
-      weekdayTotals[dow] += d.count;
-      weekdayCounts[dow]++;
-    }
-  }
-  const weekdayAvgs = weekdayTotals.map((t, i) => weekdayCounts[i] ? t / weekdayCounts[i] : 0);
-  const maxWeekdayAvg = Math.max(...weekdayAvgs);
+  const { weekdayAvgs, maxWeekdayAvg } = calcWeekdayStats(filtered);
 
   const hasStats = options.stats.dailyAvg || options.stats.weeklyAvg || options.stats.peak || options.stats.activeDays;
 
@@ -295,7 +250,7 @@ export default function App() {
         weekStart={options.weekStart}
         colorScheme={options.colorScheme}
         labels={{
-          totalCount: `💰 Total: ${formatUSD(totalCost)} across ${filtered.length} days (${yearLabel})`,
+          totalCount: `\uD83D\uDCB0 Total: ${formatUSD(totalCost)} across ${filtered.length} days (${yearLabel})`,
         }}
         theme={{
           light: themeColors,

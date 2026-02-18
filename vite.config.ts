@@ -12,8 +12,9 @@ export default defineConfig({
     {
       name: "svg-api-dev",
       configureServer() {
-        const script = resolve(__dirname, "scripts/serve-svg.mjs");
-        const child = spawn("node", [script], { stdio: "inherit" });
+        const script = resolve(__dirname, "scripts/serve-svg.ts");
+        const tsxBin = resolve(__dirname, "node_modules/.bin/tsx");
+        const child = spawn(tsxBin, [script], { stdio: "inherit" });
         process.on("exit", () => child.kill());
       },
     },
