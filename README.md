@@ -1,9 +1,14 @@
 # AI Heatmap
 
-GitHub-style heatmap for your AI usage costs. 
-Powered by 
-[ccusage](https://github.com/ryoppippi/ccusage)
-[react-activity-calendar](https://github.com/grubersjoe/react-activity-calendar).
+[![npm version](https://img.shields.io/npm/v/ai-heatmap?color=cb3837&logo=npm)](https://www.npmjs.com/package/ai-heatmap)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/seunggabi/ai-heatmap?style=social)](https://github.com/seunggabi/ai-heatmap/stargazers)
+[![Node.js](https://img.shields.io/badge/Node.js-20-339933?logo=node.js)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)](https://www.typescriptlang.org)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev)
+
+GitHub-style heatmap for your AI usage costs.
+Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-calendar](https://github.com/grubersjoe/react-activity-calendar).
 
 ## Preview
 
@@ -209,6 +214,29 @@ ai-heatmap/
   public/data.json            # Generated activity data
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=seunggabi/ai-heatmap&type=Date)](https://star-history.com/#seunggabi/ai-heatmap&Date)
+
+## Sponsor
+
+If this project helps you, consider supporting it:
+
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ea4aaa?logo=github)](https://github.com/sponsors/seunggabi)
+
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) file for details
+
+Copyright (c) 2026 seunggabi
+
+## Author
+
+**seunggabi**
+
+- GitHub: [@seunggabi](https://github.com/seunggabi)
+- Repository: [ai-heatmap](https://github.com/seunggabi/ai-heatmap)
+
+---
+
+Made with ❤️ using React, TypeScript, and Vite
