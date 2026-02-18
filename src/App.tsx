@@ -282,10 +282,6 @@ export default function App() {
       style={containerStyle}
     >
       <h1>AI Usage Heatmap</h1>
-      <p className="summary">
-        💰 Total: {formatUSD(totalCost)} across {filtered.length} days ({yearLabel})
-      </p>
-
       <ActivityCalendar
         data={filtered}
         blockSize={options.blockSize}
@@ -299,7 +295,7 @@ export default function App() {
         weekStart={options.weekStart}
         colorScheme={options.colorScheme}
         labels={{
-          totalCount: `💰 ${formatUSD(totalCost)} spent in ${yearLabel}`,
+          totalCount: `💰 Total: ${formatUSD(totalCost)} across ${filtered.length} days (${yearLabel})`,
         }}
         theme={{
           light: themeColors,

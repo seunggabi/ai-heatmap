@@ -75,6 +75,11 @@ switch (command) {
       } catch {}
     }
     console.log(`Deploying from ${deployDir}...`);
+    try {
+      execSync("git pull", { cwd: deployDir, stdio: "inherit" });
+    } catch {
+      console.log("git pull skipped (not a git repo or no remote)");
+    }
     execSync(`vercel --prod`, {
       cwd: deployDir,
       stdio: "inherit",
