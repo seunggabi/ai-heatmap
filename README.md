@@ -1,4 +1,4 @@
-# AI Heatmap
+<img width="1549" height="854" alt="image" src="https://github.com/user-attachments/assets/5786662a-ad4b-4d16-91e0-0cfda22c068f" /># AI Heatmap
 
 [![npm version](https://img.shields.io/npm/v/ai-heatmap?color=cb3837&logo=npm)](https://www.npmjs.com/package/ai-heatmap)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -12,12 +12,12 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 
 ## Quick Start
 
-```shell
+```bash
 brew install gh
 gh auth login
 ```
 
-```shell
+```bash
 USER=$(gh api user -q .login)
 
 # npx --yes ai-heatmap@latest delete
@@ -25,6 +25,13 @@ npx --yes ai-heatmap@latest init
 
 USER=$(gh api user -q .login)
 open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
+```
+
+```bash
+USER=$(gh api user -q .login)
+
+npx --yes ai-heatmap@latest deploy
+open "https://${USER}-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark"
 ```
 
 ## Preview
@@ -111,7 +118,7 @@ A static SVG (`heatmap.svg`) is also generated during build. You can embed it as
 All options are controlled via query string:
 
 ```
-https://owner.github.io/{user}-ai-heatmap/?colorScheme=dark&blockSize=14
+https://{user}.github.io/{user}-ai-heatmap/?colorScheme=dark&blockSize=14
 ```
 
 | Parameter | Default | Description |
@@ -142,14 +149,14 @@ https://owner.github.io/{user}-ai-heatmap/?colorScheme=dark&blockSize=14
 ## Configuration
 
 ```
-https://owner.github.io/{user}-ai-heatmap/heatmap.svg
+https://{user}.github.io/{user}-ai-heatmap/heatmap.svg
 ```
 
 Customize the static SVG output by editing `heatmap.config.json` in the project root:
 
 ```json
 {
-  "colorScheme": "light",
+  "colorScheme": "dark",
   "theme": "",
   "blockSize": 16,
   "blockMargin": 4,
