@@ -10,6 +10,22 @@
 GitHub-style heatmap for your AI usage costs.
 Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-calendar](https://github.com/grubersjoe/react-activity-calendar).
 
+## Quick Start
+
+```shell
+brew install gh
+gh auth login
+```
+
+```shell
+USER=$(gh api user -q .login)
+
+npx --yes ai-heatmap@latest init
+
+USER=$(gh api user -q .login)
+open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
+```
+
 ## Preview
 
 <!-- Replace seunggabi-ai-heatmap.vercel.app with your actual Vercel deployment URL -->
@@ -34,11 +50,11 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 
 ```bash
 # Init a new heatmap repo (creates repo + generates data + pushes)
-npx ai-heatmap init
+npx --yes ai-heatmap init
 # npx ai-heatmap init --repo {user}-ai-heatmap
 
 # Update data (generate + push)
-npx ai-heatmap update
+npx --yes ai-heatmap update
 # npx ai-heatmap update --repo {user}-ai-heatmap
 ```
 

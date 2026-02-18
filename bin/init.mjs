@@ -78,6 +78,16 @@ for (const f of srcFiles) {
   );
 }
 
+// Copy src/lib/
+mkdirSync(resolve(targetDir, "src/lib"), { recursive: true });
+const libFiles = ["constants.ts", "utils.ts", "svg-builder.ts"];
+for (const f of libFiles) {
+  copyFileSync(
+    resolve(templateRoot, "src/lib", f),
+    resolve(targetDir, "src/lib", f),
+  );
+}
+
 // Copy api/
 mkdirSync(resolve(targetDir, "api"), { recursive: true });
 copyFileSync(
@@ -104,6 +114,31 @@ writeFileSync(
   resolve(targetDir, "public/heatmap.config.json"),
   JSON.stringify(defaultConfig, null, 2),
 );
+
+// README.md
+let ghUser = "";
+try {
+  ghUser = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+} catch {}
+const pagesUrl = ghUser ? `https://${ghUser}.github.io/${repoName}` : "";
+const readmeLines = [
+  `# ${repoName}`,
+  "",
+  "AI usage cost heatmap powered by [ai-heatmap](https://github.com/seunggabi/ai-heatmap).",
+  "",
+];
+if (pagesUrl) {
+  readmeLines.push(`![AI Heatmap](${pagesUrl}/heatmap.svg)`, "");
+}
+readmeLines.push(
+  "## Usage",
+  "",
+  "```bash",
+  "npx ai-heatmap update",
+  "```",
+  "",
+);
+writeFileSync(resolve(targetDir, "README.md"), readmeLines.join("\n"));
 
 // GitHub Actions workflow
 const workflowDir = resolve(targetDir, ".github/workflows");
