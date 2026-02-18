@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci
+      - run: npm install
 
       - name: Generate static SVG from data.json
         run: npm run generate:svg
