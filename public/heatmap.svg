@@ -1,0 +1,410 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1132" height="466" viewBox="0 0 1132 466">
+<rect width="100%" height="100%" fill="transparent" rx="6"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:#24292f}.month{font-size:10px}.day{font-size:10px}.legend-label{font-size:10px;fill:#666}.total{font-size:11px;font-weight:600}.stat{font-size:11px;fill:#666}.stat-val{font-size:11px;font-weight:600;fill:#24292f}.bar-label{font-size:11px;fill:#666}.bar-val{font-size:10px;fill:#666}.section-title{font-size:12px;font-weight:600}</style>
+<text x="52" y="30" class="month">Feb</text>
+<text x="92" y="30" class="month">Mar</text>
+<text x="192" y="30" class="month">Apr</text>
+<text x="272" y="30" class="month">May</text>
+<text x="352" y="30" class="month">Jun</text>
+<text x="452" y="30" class="month">Jul</text>
+<text x="532" y="30" class="month">Aug</text>
+<text x="632" y="30" class="month">Sep</text>
+<text x="712" y="30" class="month">Oct</text>
+<text x="792" y="30" class="month">Nov</text>
+<text x="892" y="30" class="month">Dec</text>
+<text x="972" y="30" class="month">Jan</text>
+<text x="1052" y="30" class="month">Feb</text>
+<text x="16" y="74" class="day">Mon</text>
+<text x="16" y="114" class="day">Wed</text>
+<text x="16" y="154" class="day">Fri</text>
+<rect x="52" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-19: No data</title></rect>
+<rect x="52" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-20: No data</title></rect>
+<rect x="52" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-21: No data</title></rect>
+<rect x="52" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-22: No data</title></rect>
+<rect x="72" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-23: No data</title></rect>
+<rect x="72" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-24: No data</title></rect>
+<rect x="72" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-25: No data</title></rect>
+<rect x="72" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-26: No data</title></rect>
+<rect x="72" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-27: No data</title></rect>
+<rect x="72" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-02-28: No data</title></rect>
+<rect x="72" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-01: No data</title></rect>
+<rect x="92" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-02: No data</title></rect>
+<rect x="92" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-03: No data</title></rect>
+<rect x="92" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-04: No data</title></rect>
+<rect x="92" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-05: No data</title></rect>
+<rect x="92" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-06: No data</title></rect>
+<rect x="92" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-07: No data</title></rect>
+<rect x="92" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-08: No data</title></rect>
+<rect x="112" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-09: No data</title></rect>
+<rect x="112" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-10: No data</title></rect>
+<rect x="112" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-11: No data</title></rect>
+<rect x="112" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-12: No data</title></rect>
+<rect x="112" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-13: No data</title></rect>
+<rect x="112" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-14: No data</title></rect>
+<rect x="112" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-15: No data</title></rect>
+<rect x="132" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-16: No data</title></rect>
+<rect x="132" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-17: No data</title></rect>
+<rect x="132" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-18: No data</title></rect>
+<rect x="132" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-19: No data</title></rect>
+<rect x="132" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-20: No data</title></rect>
+<rect x="132" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-21: No data</title></rect>
+<rect x="132" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-22: No data</title></rect>
+<rect x="152" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-23: No data</title></rect>
+<rect x="152" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-24: No data</title></rect>
+<rect x="152" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-25: No data</title></rect>
+<rect x="152" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-26: No data</title></rect>
+<rect x="152" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-27: No data</title></rect>
+<rect x="152" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-28: No data</title></rect>
+<rect x="152" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-29: No data</title></rect>
+<rect x="172" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-30: No data</title></rect>
+<rect x="172" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-03-31: No data</title></rect>
+<rect x="172" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-01: No data</title></rect>
+<rect x="172" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-02: No data</title></rect>
+<rect x="172" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-03: No data</title></rect>
+<rect x="172" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-04: No data</title></rect>
+<rect x="172" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-05: No data</title></rect>
+<rect x="192" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-06: No data</title></rect>
+<rect x="192" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-07: No data</title></rect>
+<rect x="192" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-08: No data</title></rect>
+<rect x="192" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-09: No data</title></rect>
+<rect x="192" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-10: No data</title></rect>
+<rect x="192" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-11: No data</title></rect>
+<rect x="192" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-12: No data</title></rect>
+<rect x="212" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-13: No data</title></rect>
+<rect x="212" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-14: No data</title></rect>
+<rect x="212" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-15: No data</title></rect>
+<rect x="212" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-16: No data</title></rect>
+<rect x="212" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-17: No data</title></rect>
+<rect x="212" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-18: No data</title></rect>
+<rect x="212" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-19: No data</title></rect>
+<rect x="232" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-20: No data</title></rect>
+<rect x="232" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-21: No data</title></rect>
+<rect x="232" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-22: No data</title></rect>
+<rect x="232" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-23: No data</title></rect>
+<rect x="232" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-24: No data</title></rect>
+<rect x="232" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-25: No data</title></rect>
+<rect x="232" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-26: No data</title></rect>
+<rect x="252" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-27: No data</title></rect>
+<rect x="252" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-28: No data</title></rect>
+<rect x="252" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-29: No data</title></rect>
+<rect x="252" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-04-30: No data</title></rect>
+<rect x="252" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-01: No data</title></rect>
+<rect x="252" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-02: No data</title></rect>
+<rect x="252" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-03: No data</title></rect>
+<rect x="272" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-04: No data</title></rect>
+<rect x="272" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-05: No data</title></rect>
+<rect x="272" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-06: No data</title></rect>
+<rect x="272" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-07: No data</title></rect>
+<rect x="272" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-08: No data</title></rect>
+<rect x="272" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-09: No data</title></rect>
+<rect x="272" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-10: No data</title></rect>
+<rect x="292" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-11: No data</title></rect>
+<rect x="292" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-12: No data</title></rect>
+<rect x="292" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-13: No data</title></rect>
+<rect x="292" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-14: No data</title></rect>
+<rect x="292" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-15: No data</title></rect>
+<rect x="292" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-16: No data</title></rect>
+<rect x="292" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-17: No data</title></rect>
+<rect x="312" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-18: No data</title></rect>
+<rect x="312" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-19: No data</title></rect>
+<rect x="312" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-20: No data</title></rect>
+<rect x="312" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-21: No data</title></rect>
+<rect x="312" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-22: No data</title></rect>
+<rect x="312" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-23: No data</title></rect>
+<rect x="312" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-24: No data</title></rect>
+<rect x="332" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-25: No data</title></rect>
+<rect x="332" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-26: No data</title></rect>
+<rect x="332" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-27: No data</title></rect>
+<rect x="332" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-28: No data</title></rect>
+<rect x="332" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-29: No data</title></rect>
+<rect x="332" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-30: No data</title></rect>
+<rect x="332" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-05-31: No data</title></rect>
+<rect x="352" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-01: No data</title></rect>
+<rect x="352" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-02: No data</title></rect>
+<rect x="352" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-03: No data</title></rect>
+<rect x="352" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-04: No data</title></rect>
+<rect x="352" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-05: No data</title></rect>
+<rect x="352" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-06: No data</title></rect>
+<rect x="352" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-07: No data</title></rect>
+<rect x="372" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-08: No data</title></rect>
+<rect x="372" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-09: No data</title></rect>
+<rect x="372" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-10: No data</title></rect>
+<rect x="372" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-11: No data</title></rect>
+<rect x="372" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-12: No data</title></rect>
+<rect x="372" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-13: No data</title></rect>
+<rect x="372" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-14: No data</title></rect>
+<rect x="392" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-15: No data</title></rect>
+<rect x="392" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-16: No data</title></rect>
+<rect x="392" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-17: No data</title></rect>
+<rect x="392" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-18: No data</title></rect>
+<rect x="392" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-19: No data</title></rect>
+<rect x="392" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-20: No data</title></rect>
+<rect x="392" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-21: No data</title></rect>
+<rect x="412" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-22: No data</title></rect>
+<rect x="412" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-23: No data</title></rect>
+<rect x="412" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-24: No data</title></rect>
+<rect x="412" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-25: No data</title></rect>
+<rect x="412" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-26: No data</title></rect>
+<rect x="412" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-27: No data</title></rect>
+<rect x="412" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-28: No data</title></rect>
+<rect x="432" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-29: No data</title></rect>
+<rect x="432" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-06-30: No data</title></rect>
+<rect x="432" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-01: No data</title></rect>
+<rect x="432" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-02: No data</title></rect>
+<rect x="432" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-03: No data</title></rect>
+<rect x="432" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-04: No data</title></rect>
+<rect x="432" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-05: No data</title></rect>
+<rect x="452" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-06: No data</title></rect>
+<rect x="452" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-07: No data</title></rect>
+<rect x="452" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-08: No data</title></rect>
+<rect x="452" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-09: No data</title></rect>
+<rect x="452" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-10: No data</title></rect>
+<rect x="452" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-11: No data</title></rect>
+<rect x="452" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-12: No data</title></rect>
+<rect x="472" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-13: No data</title></rect>
+<rect x="472" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-14: No data</title></rect>
+<rect x="472" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-15: No data</title></rect>
+<rect x="472" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-16: No data</title></rect>
+<rect x="472" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-17: No data</title></rect>
+<rect x="472" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-18: No data</title></rect>
+<rect x="472" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-19: No data</title></rect>
+<rect x="492" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-20: No data</title></rect>
+<rect x="492" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-21: No data</title></rect>
+<rect x="492" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-22: No data</title></rect>
+<rect x="492" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-23: No data</title></rect>
+<rect x="492" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-24: No data</title></rect>
+<rect x="492" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-25: No data</title></rect>
+<rect x="492" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-26: No data</title></rect>
+<rect x="512" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-27: No data</title></rect>
+<rect x="512" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-28: No data</title></rect>
+<rect x="512" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-29: No data</title></rect>
+<rect x="512" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-30: No data</title></rect>
+<rect x="512" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-07-31: No data</title></rect>
+<rect x="512" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-01: No data</title></rect>
+<rect x="512" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-02: No data</title></rect>
+<rect x="532" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-03: No data</title></rect>
+<rect x="532" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-04: No data</title></rect>
+<rect x="532" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-05: No data</title></rect>
+<rect x="532" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-06: No data</title></rect>
+<rect x="532" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-07: No data</title></rect>
+<rect x="532" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-08: No data</title></rect>
+<rect x="532" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-09: No data</title></rect>
+<rect x="552" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-10: No data</title></rect>
+<rect x="552" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-11: No data</title></rect>
+<rect x="552" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-12: No data</title></rect>
+<rect x="552" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-13: No data</title></rect>
+<rect x="552" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-14: No data</title></rect>
+<rect x="552" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-15: No data</title></rect>
+<rect x="552" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-16: No data</title></rect>
+<rect x="572" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-17: No data</title></rect>
+<rect x="572" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-18: No data</title></rect>
+<rect x="572" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-19: No data</title></rect>
+<rect x="572" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-20: No data</title></rect>
+<rect x="572" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-21: No data</title></rect>
+<rect x="572" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-22: No data</title></rect>
+<rect x="572" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-23: No data</title></rect>
+<rect x="592" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-24: No data</title></rect>
+<rect x="592" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-25: No data</title></rect>
+<rect x="592" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-26: No data</title></rect>
+<rect x="592" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-27: No data</title></rect>
+<rect x="592" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-28: No data</title></rect>
+<rect x="592" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-29: No data</title></rect>
+<rect x="592" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-30: No data</title></rect>
+<rect x="612" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-08-31: No data</title></rect>
+<rect x="612" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-01: No data</title></rect>
+<rect x="612" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-02: No data</title></rect>
+<rect x="612" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-03: No data</title></rect>
+<rect x="612" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-04: No data</title></rect>
+<rect x="612" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-05: No data</title></rect>
+<rect x="612" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-06: No data</title></rect>
+<rect x="632" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-07: No data</title></rect>
+<rect x="632" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-08: No data</title></rect>
+<rect x="632" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-09: No data</title></rect>
+<rect x="632" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-10: No data</title></rect>
+<rect x="632" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-11: No data</title></rect>
+<rect x="632" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-12: No data</title></rect>
+<rect x="632" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-13: No data</title></rect>
+<rect x="652" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-14: No data</title></rect>
+<rect x="652" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-15: No data</title></rect>
+<rect x="652" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-16: No data</title></rect>
+<rect x="652" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-17: No data</title></rect>
+<rect x="652" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-18: No data</title></rect>
+<rect x="652" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-19: No data</title></rect>
+<rect x="652" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-20: No data</title></rect>
+<rect x="672" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-21: No data</title></rect>
+<rect x="672" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-22: No data</title></rect>
+<rect x="672" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-23: No data</title></rect>
+<rect x="672" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-24: No data</title></rect>
+<rect x="672" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-25: No data</title></rect>
+<rect x="672" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-26: No data</title></rect>
+<rect x="672" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-27: No data</title></rect>
+<rect x="692" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-28: No data</title></rect>
+<rect x="692" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-29: No data</title></rect>
+<rect x="692" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-09-30: No data</title></rect>
+<rect x="692" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-01: No data</title></rect>
+<rect x="692" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-02: No data</title></rect>
+<rect x="692" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-03: No data</title></rect>
+<rect x="692" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-04: No data</title></rect>
+<rect x="712" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-05: No data</title></rect>
+<rect x="712" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-06: No data</title></rect>
+<rect x="712" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-07: No data</title></rect>
+<rect x="712" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-08: No data</title></rect>
+<rect x="712" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-09: No data</title></rect>
+<rect x="712" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-10: No data</title></rect>
+<rect x="712" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-11: No data</title></rect>
+<rect x="732" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-12: No data</title></rect>
+<rect x="732" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-13: No data</title></rect>
+<rect x="732" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-14: No data</title></rect>
+<rect x="732" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-15: No data</title></rect>
+<rect x="732" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-16: No data</title></rect>
+<rect x="732" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-17: No data</title></rect>
+<rect x="732" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-18: No data</title></rect>
+<rect x="752" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-19: No data</title></rect>
+<rect x="752" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-20: No data</title></rect>
+<rect x="752" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-21: No data</title></rect>
+<rect x="752" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-22: No data</title></rect>
+<rect x="752" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-23: No data</title></rect>
+<rect x="752" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-24: No data</title></rect>
+<rect x="752" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-25: No data</title></rect>
+<rect x="772" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-26: No data</title></rect>
+<rect x="772" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-27: No data</title></rect>
+<rect x="772" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-28: No data</title></rect>
+<rect x="772" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-29: No data</title></rect>
+<rect x="772" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-30: No data</title></rect>
+<rect x="772" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-10-31: No data</title></rect>
+<rect x="772" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-01: No data</title></rect>
+<rect x="792" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-02: No data</title></rect>
+<rect x="792" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-03: No data</title></rect>
+<rect x="792" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-04: No data</title></rect>
+<rect x="792" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-05: No data</title></rect>
+<rect x="792" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-06: No data</title></rect>
+<rect x="792" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-07: No data</title></rect>
+<rect x="792" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-08: No data</title></rect>
+<rect x="812" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-09: No data</title></rect>
+<rect x="812" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-10: No data</title></rect>
+<rect x="812" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-11: No data</title></rect>
+<rect x="812" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-12: No data</title></rect>
+<rect x="812" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-13: No data</title></rect>
+<rect x="812" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-14: No data</title></rect>
+<rect x="812" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-15: No data</title></rect>
+<rect x="832" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-16: No data</title></rect>
+<rect x="832" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-17: No data</title></rect>
+<rect x="832" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-18: No data</title></rect>
+<rect x="832" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-19: No data</title></rect>
+<rect x="832" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-20: No data</title></rect>
+<rect x="832" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-21: No data</title></rect>
+<rect x="832" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-22: No data</title></rect>
+<rect x="852" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-23: No data</title></rect>
+<rect x="852" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-24: No data</title></rect>
+<rect x="852" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-25: No data</title></rect>
+<rect x="852" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-26: No data</title></rect>
+<rect x="852" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-27: No data</title></rect>
+<rect x="852" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-28: No data</title></rect>
+<rect x="852" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-29: No data</title></rect>
+<rect x="872" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-11-30: No data</title></rect>
+<rect x="872" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-01: No data</title></rect>
+<rect x="872" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-02: No data</title></rect>
+<rect x="872" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-03: No data</title></rect>
+<rect x="872" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-04: No data</title></rect>
+<rect x="872" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-05: No data</title></rect>
+<rect x="872" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-06: No data</title></rect>
+<rect x="892" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-07: No data</title></rect>
+<rect x="892" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-08: No data</title></rect>
+<rect x="892" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-09: No data</title></rect>
+<rect x="892" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-10: No data</title></rect>
+<rect x="892" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-11: No data</title></rect>
+<rect x="892" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-12: No data</title></rect>
+<rect x="892" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-13: No data</title></rect>
+<rect x="912" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-14: No data</title></rect>
+<rect x="912" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-15: No data</title></rect>
+<rect x="912" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-16: No data</title></rect>
+<rect x="912" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-17: No data</title></rect>
+<rect x="912" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-18: No data</title></rect>
+<rect x="912" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-19: No data</title></rect>
+<rect x="912" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-20: No data</title></rect>
+<rect x="932" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-21: No data</title></rect>
+<rect x="932" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-22: No data</title></rect>
+<rect x="932" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-23: No data</title></rect>
+<rect x="932" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-24: No data</title></rect>
+<rect x="932" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-25: No data</title></rect>
+<rect x="932" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-26: No data</title></rect>
+<rect x="932" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-27: No data</title></rect>
+<rect x="952" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-28: No data</title></rect>
+<rect x="952" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-29: No data</title></rect>
+<rect x="952" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-30: No data</title></rect>
+<rect x="952" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2025-12-31: No data</title></rect>
+<rect x="952" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-01: No data</title></rect>
+<rect x="952" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-02: No data</title></rect>
+<rect x="952" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-03: No data</title></rect>
+<rect x="972" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-04: No data</title></rect>
+<rect x="972" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-05: No data</title></rect>
+<rect x="972" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-06: No data</title></rect>
+<rect x="972" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-07: No data</title></rect>
+<rect x="972" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-08: No data</title></rect>
+<rect x="972" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-09: No data</title></rect>
+<rect x="972" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-10: No data</title></rect>
+<rect x="992" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-11: No data</title></rect>
+<rect x="992" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-12: No data</title></rect>
+<rect x="992" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-13: No data</title></rect>
+<rect x="992" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-14: No data</title></rect>
+<rect x="992" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-15: No data</title></rect>
+<rect x="992" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-16: No data</title></rect>
+<rect x="992" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-17: No data</title></rect>
+<rect x="1012" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-18: No data</title></rect>
+<rect x="1012" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-19: No data</title></rect>
+<rect x="1012" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-20: No data</title></rect>
+<rect x="1012" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-21: No data</title></rect>
+<rect x="1012" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-22: No data</title></rect>
+<rect x="1012" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-23: No data</title></rect>
+<rect x="1012" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-24: No data</title></rect>
+<rect x="1032" y="40" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-25: No data</title></rect>
+<rect x="1032" y="60" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-26: No data</title></rect>
+<rect x="1032" y="80" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-27: No data</title></rect>
+<rect x="1032" y="100" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-28: No data</title></rect>
+<rect x="1032" y="120" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-29: No data</title></rect>
+<rect x="1032" y="140" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-30: No data</title></rect>
+<rect x="1032" y="160" width="16" height="16" rx="3" fill="#ebedf0"><title>2026-01-31: No data</title></rect>
+<rect x="1052" y="40" width="16" height="16" rx="3" fill="#c6e48b"><title>2026-02-01: $27.90</title></rect>
+<rect x="1052" y="60" width="16" height="16" rx="3" fill="#196127"><title>2026-02-02: $136.12</title></rect>
+<rect x="1052" y="80" width="16" height="16" rx="3" fill="#7bc96f"><title>2026-02-03: $59.67</title></rect>
+<rect x="1052" y="100" width="16" height="16" rx="3" fill="#196127"><title>2026-02-04: $123.34</title></rect>
+<rect x="1052" y="120" width="16" height="16" rx="3" fill="#196127"><title>2026-02-05: $120.81</title></rect>
+<rect x="1052" y="140" width="16" height="16" rx="3" fill="#196127"><title>2026-02-06: $134.48</title></rect>
+<rect x="1052" y="160" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-07: $101.17</title></rect>
+<rect x="1072" y="40" width="16" height="16" rx="3" fill="#196127"><title>2026-02-08: $126.57</title></rect>
+<rect x="1072" y="60" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-09: $96.71</title></rect>
+<rect x="1072" y="80" width="16" height="16" rx="3" fill="#196127"><title>2026-02-10: $108.43</title></rect>
+<rect x="1072" y="100" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-11: $74.32</title></rect>
+<rect x="1072" y="120" width="16" height="16" rx="3" fill="#196127"><title>2026-02-12: $141.43</title></rect>
+<rect x="1072" y="140" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-13: $99.42</title></rect>
+<rect x="1072" y="160" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-14: $101.46</title></rect>
+<rect x="1092" y="40" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-15: $94.65</title></rect>
+<rect x="1092" y="60" width="16" height="16" rx="3" fill="#7bc96f"><title>2026-02-16: $69.87</title></rect>
+<rect x="1092" y="80" width="16" height="16" rx="3" fill="#239a3b"><title>2026-02-17: $77.63</title></rect>
+<rect x="1092" y="100" width="16" height="16" rx="3" fill="#196127"><title>2026-02-18: $123.06</title></rect>
+<text x="956" y="205" class="legend-label">Less</text>
+<rect x="996" y="190" width="16" height="16" rx="3" fill="#ebedf0"/>
+<rect x="1016" y="190" width="16" height="16" rx="3" fill="#c6e48b"/>
+<rect x="1036" y="190" width="16" height="16" rx="3" fill="#7bc96f"/>
+<rect x="1056" y="190" width="16" height="16" rx="3" fill="#239a3b"/>
+<rect x="1076" y="190" width="16" height="16" rx="3" fill="#196127"/>
+<text x="1096" y="205" class="legend-label">More</text>
+<text x="52" y="205" class="total">$1,817.04 total (2025~2026)</text>
+
+<line x1="16" y1="220" x2="1116" y2="220" stroke="#d0d7de" stroke-width="1"/>
+<text x="16" y="238" class="stat">Daily avg: <tspan class="stat-val">$100.95</tspan></text>
+<text x="216" y="238" class="stat">Weekly avg: <tspan class="stat-val">$605.68</tspan></text>
+<text x="16" y="256" class="stat">Peak: <tspan class="stat-val">$141.43</tspan> (2026-02-12)</text>
+<text x="216" y="256" class="stat">Active: <tspan class="stat-val">18</tspan> / 365 days</text>
+
+
+<text x="16" y="276" class="section-title">Avg by weekday</text>
+<text x="16" y="302" class="bar-label">Sun</text><rect x="52" y="292" width="189.99389871873095" height="14" rx="3" fill="#239a3b" opacity="0.85"/><text x="247.99389871873095" y="303" class="bar-val">$83.04</text>
+<text x="16" y="324" class="bar-label">Mon</text><rect x="52" y="314" width="230.8572300183038" height="14" rx="3" fill="#196127" opacity="0.85"/><text x="288.85723001830377" y="325" class="bar-val">$100.90</text>
+<text x="16" y="346" class="bar-label">Tue</text><rect x="52" y="336" width="187.408480780964" height="14" rx="3" fill="#239a3b" opacity="0.85"/><text x="245.408480780964" y="347" class="bar-val">$81.91</text>
+<text x="16" y="368" class="bar-label">Wed</text><rect x="52" y="358" width="244.60036607687616" height="14" rx="3" fill="#196127" opacity="0.85"/><text x="302.6003660768762" y="369" class="bar-val">$106.91</text>
+<text x="16" y="390" class="bar-label">Thu</text><rect x="52" y="380" width="300" height="14" rx="3" fill="#196127" opacity="0.85"/><text x="358" y="391" class="bar-val">$131.12</text>
+<text x="16" y="412" class="bar-label">Fri</text><rect x="52" y="402" width="267.57931665649784" height="14" rx="3" fill="#196127" opacity="0.85"/><text x="325.57931665649784" y="413" class="bar-val">$116.95</text>
+<text x="16" y="434" class="bar-label">Sat</text><rect x="52" y="424" width="231.80674191580232" height="14" rx="3" fill="#196127" opacity="0.85"/><text x="289.8067419158023" y="435" class="bar-val">$101.32</text>
+
+</svg>

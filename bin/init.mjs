@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+import { execSync } from "node:child_process";
+import { mkdirSync, writeFileSync, copyFileSync, existsSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const templateRoot = resolve(__dirname, "..");
+const repoName = process.argv[2] || "ai-heatmap";
+const targetDir = resolve(process.cwd(), repoName);
+
+if (existsSync(targetDir)) {
+  console.error(`Error: ${targetDir} already exists`);
+  process.exit(1);
+}
+
+console.log(`Creating ${repoName}...`);
+mkdirSync(targetDir, { recursive: true });
+
+// package.json
+const pkg = {
+  name: repoName,
+  version: "1.0.0",
+  type: "module",
+  scripts: {
+    generate: "npx ai-heatmap generate",
+    dev: "vite",
+    build: "vite build",
+    preview: "vite preview",
+    update: `npx ai-heatmap update --repo OWNER/${repoName}`,
+  },
+  dependencies: {
+    react: "^19.2.4",
+    "react-activity-calendar": "^3.1.1",
+    "react-dom": "^19.2.4",
+    "react-tooltip": "^5.30.0",
+  },
+  devDependencies: {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    typescript: "^5.9.3",
+    vite: "^7.3.1",
+  },
+};
+writeFileSync(
+  resolve(targetDir, "package.json"),
+  JSON.stringify(pkg, null, 2),
+);
+
+// Copy template files
+const filesToCopy = [
+  "index.html",
+  "vite.config.ts",
+  "tsconfig.json",
+  ".gitignore",
+];
+for (const f of filesToCopy) {
+  copyFileSync(resolve(templateRoot, f), resolve(targetDir, f));
+}
+
+// Copy src/
+mkdirSync(resolve(targetDir, "src"), { recursive: true });
+const srcFiles = ["main.tsx", "App.tsx", "App.css", "vite-env.d.ts"];
+for (const f of srcFiles) {
+  copyFileSync(
+    resolve(templateRoot, "src", f),
+    resolve(targetDir, "src", f),
+  );
+}
+
+// Create public/
+mkdirSync(resolve(targetDir, "public"), { recursive: true });
+
+// GitHub Actions workflow
+const workflowDir = resolve(targetDir, ".github/workflows");
+mkdirSync(workflowDir, { recursive: true });
+copyFileSync(
+  resolve(templateRoot, ".github/workflows/deploy.yml"),
+  resolve(workflowDir, "deploy.yml"),
+);
+
+// Git init
+execSync("git init", { cwd: targetDir, stdio: "inherit" });
+execSync("git add -A", { cwd: targetDir, stdio: "inherit" });
+execSync('git commit -m "Initial commit: ai-heatmap"', {
+  cwd: targetDir,
+  stdio: "inherit",
+});
+
+// Try to create GitHub repo
+try {
+  execSync(`gh repo create ${repoName} --public --source=. --push`, {
+    cwd: targetDir,
+    stdio: "inherit",
+  });
+  console.log(`\nRepo created: https://github.com/$(gh api user -q .login)/${repoName}`);
+
+  // Enable GitHub Pages
+  try {
+    execSync(
+      `gh api repos/{owner}/{repo}/pages -X POST -f build_type=workflow 2>/dev/null || true`,
+      { cwd: targetDir, stdio: "inherit" },
+    );
+  } catch {
+    // Pages may need manual setup
+  }
+} catch {
+  console.log("\nGitHub repo creation skipped (gh CLI not available or auth needed)");
+  console.log("Push manually: git remote add origin <url> && git push -u origin main");
+}
+
+console.log(`
+Done! Next steps:
+  cd ${repoName}
+  npm install
+  npm run generate        # Generate data from ccusage
+  npm run dev             # Preview locally
+  git push                # Deploy to GitHub Pages
+`);
