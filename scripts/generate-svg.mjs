@@ -150,16 +150,13 @@ ${DAY_NAMES.map((name, i) => {
 
 const cwd = process.cwd();
 const configPath = resolve(cwd, "public/heatmap.config.json");
-const fallbackConfigPath = resolve(cwd, "heatmap.config.json");
 const defaults = {
   colorScheme: "light", theme: "", blockSize: 16, blockMargin: 4, blockRadius: 3,
   bg: "", textColor: "", start: "", end: "", stats: true, weekday: true,
 };
 const config = existsSync(configPath)
   ? { ...defaults, ...JSON.parse(readFileSync(configPath, "utf-8")) }
-  : existsSync(fallbackConfigPath)
-    ? { ...defaults, ...JSON.parse(readFileSync(fallbackConfigPath, "utf-8")) }
-    : defaults;
+  : defaults;
 
 const dataPath = resolve(cwd, "public/data.json");
 if (!existsSync(dataPath)) {
