@@ -134,7 +134,7 @@ readmeLines.push(
   "",
   "## Dynamic SVG (by Vercel)",
   "",
-  `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue)`,
+  `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue&colorScheme=dark)`,
   "",
   "```bash",
   "npx --yes ai-heatmap@latest deploy",
