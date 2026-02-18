@@ -60,11 +60,13 @@ const filesToCopy = [
   "vite.config.ts",
   "tsconfig.json",
   "vercel.json",
-  ".gitignore",
 ];
 for (const f of filesToCopy) {
   copyFileSync(resolve(templateRoot, f), resolve(targetDir, f));
 }
+
+// .gitignore (npm renames .gitignore to .npmignore during install, so generate it)
+writeFileSync(resolve(targetDir, ".gitignore"), "node_modules\ndist\n");
 
 // Copy src/
 mkdirSync(resolve(targetDir, "src"), { recursive: true });
