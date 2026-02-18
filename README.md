@@ -20,6 +20,7 @@ gh auth login
 ```shell
 USER=$(gh api user -q .login)
 
+# npx --yes ai-heatmap@latest delete
 npx --yes ai-heatmap@latest init
 
 USER=$(gh api user -q .login)
@@ -44,18 +45,6 @@ open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
 
 <!-- Custom date range -->
 ![](https://{user}-ai-heatmap.vercel.app/api/heatmap?start=2026-01-01&end=2026-02-18)
-```
-
-## Quick Start
-
-```bash
-# Init a new heatmap repo (creates repo + generates data + pushes)
-npx --yes ai-heatmap init
-# npx ai-heatmap init --repo {user}-ai-heatmap
-
-# Update data (generate + push)
-npx --yes ai-heatmap update
-# npx ai-heatmap update --repo {user}-ai-heatmap
 ```
 
 ## SVG API (Vercel Only)
