@@ -34,15 +34,15 @@ npx ai-heatmap generate
 
 # Init a new GitHub Pages repo
 npx ai-heatmap init
-npx ai-heatmap init my-ai-heatmap
+npx ai-heatmap init {user}-ai-heatmap
 
 # Push data to repo
 npx ai-heatmap push
-npx ai-heatmap push --repo my-ai-heatmap
+npx ai-heatmap push --repo {user}-ai-heatmap
 
 # Generate + push in one step
 npx ai-heatmap update
-npx ai-heatmap update --repo my-ai-heatmap
+npx ai-heatmap update --repo {user}-ai-heatmap
 ```
 
 ## SVG API (Vercel)
@@ -99,7 +99,7 @@ The interactive version with tooltips is deployed via GitHub Pages. Tooltips sho
 All options are controlled via query string:
 
 ```
-https://owner.github.io/my-ai-heatmap/?colorScheme=dark&blockSize=14
+https://owner.github.io/{user}-ai-heatmap/?colorScheme=dark&blockSize=14
 ```
 
 | Parameter | Default | Description |

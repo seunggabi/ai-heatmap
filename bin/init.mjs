@@ -6,7 +6,12 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const templateRoot = resolve(__dirname, "..");
-const repoName = process.argv[2] || "ai-heatmap";
+let defaultName = "ai-heatmap";
+try {
+  const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+  defaultName = `${owner}-ai-heatmap`;
+} catch {}
+const repoName = process.argv[2] || defaultName;
 const targetDir = resolve(process.cwd(), repoName);
 
 if (existsSync(targetDir)) {
@@ -38,6 +43,7 @@ const pkg = {
   devDependencies: {
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.6.4",
     "@vitejs/plugin-react": "^5.1.4",
     typescript: "^5.9.3",
     vite: "^7.3.1",
@@ -53,6 +59,7 @@ const filesToCopy = [
   "index.html",
   "vite.config.ts",
   "tsconfig.json",
+  "vercel.json",
   ".gitignore",
 ];
 for (const f of filesToCopy) {
@@ -68,6 +75,13 @@ for (const f of srcFiles) {
     resolve(targetDir, "src", f),
   );
 }
+
+// Copy api/
+mkdirSync(resolve(targetDir, "api"), { recursive: true });
+copyFileSync(
+  resolve(templateRoot, "api/heatmap.ts"),
+  resolve(targetDir, "api/heatmap.ts"),
+);
 
 // Create public/
 mkdirSync(resolve(targetDir, "public"), { recursive: true });

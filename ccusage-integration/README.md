@@ -10,13 +10,13 @@ Add `--heatmap` flag to ccusage that auto-generates and pushes data to a user's 
 
 ```bash
 # One-time setup: create your heatmap repo
-npx ai-heatmap init my-ai-heatmap
+npx ai-heatmap init {user}-ai-heatmap
 
 # Then with ccusage:
-npx ccusage daily --heatmap --heatmap-repo seunggabi/my-ai-heatmap
+npx ccusage daily --heatmap --heatmap-repo {user}/{user}-ai-heatmap
 
 # Or set env var for convenience:
-export CCUSAGE_HEATMAP_REPO=seunggabi/my-ai-heatmap
+export CCUSAGE_HEATMAP_REPO={user}/{user}-ai-heatmap
 npx ccusage daily --heatmap
 ```
 
