@@ -52,6 +52,38 @@ code {
   font-size: 0.85em;
 }
 
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid #d0d7de;
+}
+
+[data-color-scheme="dark"] .stats {
+  border-top-color: #30363d;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+[data-color-scheme="dark"] .stat-label {
+  color: #8b949e;
+}
+
 .params-help {
   margin-top: 2rem;
   font-size: 0.85rem;
