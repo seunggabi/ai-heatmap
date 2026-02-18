@@ -169,7 +169,12 @@ export default function App() {
     return true;
   });
 
+  const activeDays = filtered.filter((d) => d.count > 0);
   const totalCost = filtered.reduce((s, d) => s + d.count, 0);
+  const dailyAvg = activeDays.length ? totalCost / activeDays.length : 0;
+  const weeks = Math.max(1, Math.ceil(filtered.length / 7));
+  const weeklyAvg = totalCost / weeks;
+  const peak = activeDays.reduce((max, d) => (d.count > max.count ? d : max), activeDays[0]);
   const firstYear = filtered[0]?.date.slice(0, 4);
   const lastYear = filtered[filtered.length - 1]?.date.slice(0, 4);
   const yearLabel = firstYear === lastYear ? firstYear : `${firstYear}~${lastYear}`;
@@ -224,6 +229,27 @@ export default function App() {
         }}
       />
       <ReactTooltip id="heatmap-tooltip" />
+
+      {activeDays.length > 0 && (
+        <div className="stats">
+          <div className="stat-item">
+            <span className="stat-value">{formatUSD(dailyAvg)}</span>
+            <span className="stat-label">Daily Avg</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{formatUSD(weeklyAvg)}</span>
+            <span className="stat-label">Weekly Avg</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{formatUSD(peak?.count ?? 0)}</span>
+            <span className="stat-label">Peak ({peak?.date})</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{activeDays.length}</span>
+            <span className="stat-label">Active Days</span>
+          </div>
+        </div>
+      )}
 
       <details className="params-help">
         <summary>Query Parameters</summary>
