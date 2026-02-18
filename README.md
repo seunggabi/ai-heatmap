@@ -30,7 +30,7 @@ open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
 ## Preview
 
 <!-- Replace seunggabi-ai-heatmap.vercel.app with your actual Vercel deployment URL -->
-![AI Heatmap](https://seunggabi-ai-heatmap.vercel.app/api/heatmap)
+![AI Heatmap](https://seunggabi-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark)
 
 ### Variations
 ```markdown
