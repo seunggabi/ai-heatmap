@@ -126,11 +126,20 @@ try {
   console.log("Push manually: git remote add origin <url> && git push -u origin main");
 }
 
+// Generate and push data
+console.log("\nGenerating and pushing heatmap data...");
+try {
+  const genScript = resolve(templateRoot, "scripts/generate.mjs");
+  const pushScript = resolve(__dirname, "push.mjs");
+  execSync(`node ${genScript}`, { stdio: "inherit" });
+  execSync(`node ${pushScript} --repo ${repoName}`, { stdio: "inherit" });
+} catch {
+  console.log("Data generation/push skipped. Run 'npx ai-heatmap update' later.");
+}
+
 console.log(`
-Done! Next steps:
+Done! Your heatmap repo is ready:
   cd ${repoName}
   npm install
-  npm run generate        # Generate data from ccusage
   npm run dev             # Preview locally
-  git push                # Deploy to GitHub Pages
 `);
