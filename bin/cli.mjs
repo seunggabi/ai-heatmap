@@ -13,28 +13,35 @@ const HELP = `
 ai-heatmap - AI usage cost heatmap
 
 Commands:
-  init [repo-name]           Create a new heatmap repo and generate initial data
-  update [--repo <owner/repo>]  Generate data + push to repo (default: {user}/{user}-ai-heatmap)
-  delete [repo-name]         Delete the heatmap GitHub repo
-  deploy                     Deploy to Vercel (SVG API endpoint)
+  init    [--repo <name>]        Create a new heatmap repo and generate initial data
+  update  [--repo <owner/repo>]  Generate data + push to repo
+  delete  [--repo <name>]        Delete the heatmap GitHub repo
+  deploy  [--repo <name>]        Deploy to Vercel (SVG API endpoint)
 
-Update options:
-  --since YYYYMMDD        Start date
-  --until YYYYMMDD        End date
-  --repo <owner/repo>     Target repo (default: auto-detect)
+Options:
+  --repo <name>           Target repo (default: {user}-ai-heatmap)
+  --since YYYYMMDD        Start date (update only)
+  --until YYYYMMDD        End date (update only)
 
 Examples:
   npx ai-heatmap init
+  npx ai-heatmap init --repo my-heatmap
   npx ai-heatmap update
-  npx ai-heatmap update --repo {user}-ai-heatmap
+  npx ai-heatmap update --repo owner/repo-name
   npx ai-heatmap delete
   npx ai-heatmap deploy
 `;
 
+function getArg(flag) {
+  const idx = args.indexOf(flag);
+  return idx !== -1 && args[idx + 1] ? args[idx + 1] : null;
+}
+
 switch (command) {
   case "init": {
     const script = resolve(__dirname, "init.mjs");
-    execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
+    const repoName = getArg("--repo") || args[0] || "";
+    execSync(`node ${script} ${repoName}`, { stdio: "inherit" });
     break;
   }
   case "update": {
@@ -50,7 +57,8 @@ switch (command) {
   }
   case "delete": {
     const script = resolve(__dirname, "delete.mjs");
-    execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
+    const repoName = getArg("--repo") || args[0] || "";
+    execSync(`node ${script} ${repoName}`, { stdio: "inherit" });
     break;
   }
   case "deploy": {
@@ -60,9 +68,9 @@ switch (command) {
       console.log("Installing Vercel CLI...");
       execSync("npm install -g vercel", { stdio: "inherit" });
     }
-    // Determine target directory: argument > auto-detect {user}-ai-heatmap > cwd
+    // Determine target directory: --repo > positional arg > auto-detect {user}-ai-heatmap > cwd
     let deployDir = process.cwd();
-    const repoArg = args[0];
+    const repoArg = getArg("--repo") || args[0];
     if (repoArg) {
       deployDir = resolve(process.cwd(), repoArg);
     } else {

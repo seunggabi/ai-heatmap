@@ -12,23 +12,22 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 
 ## Preview
 
-<!-- Replace YOUR_VERCEL_DOMAIN with your actual Vercel deployment URL -->
-![AI Heatmap](https://seunggabi-ai-heatmap/api/heatmap)
+<!-- Replace seunggabi-ai-heatmap.vercel.app with your actual Vercel deployment URL -->
+![AI Heatmap](https://seunggabi-ai-heatmap.vercel.app/api/heatmap)
 
 ### Variations
-
 ```markdown
 <!-- Dark mode with full stats -->
-![](https://YOUR_VERCEL_DOMAIN/api/heatmap?colorScheme=dark)
+![](https://{user}-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark)
 
 <!-- Blue theme, heatmap + stats only -->
-![](https://YOUR_VERCEL_DOMAIN/api/heatmap?theme=blue&weekday=false)
+![](https://{user}-ai-heatmap.vercel.app/api/heatmap?theme=blue&weekday=false)
 
 <!-- Heatmap only (clean embed) -->
-![](https://YOUR_VERCEL_DOMAIN/api/heatmap?stats=false&weekday=false)
+![](https://{user}-ai-heatmap.vercel.app/api/heatmap?stats=false&weekday=false)
 
 <!-- Custom date range -->
-![](https://YOUR_VERCEL_DOMAIN/api/heatmap?start=2026-01-01&end=2026-02-18)
+![](https://{user}-ai-heatmap.vercel.app/api/heatmap?start=2026-01-01&end=2026-02-18)
 ```
 
 ## Quick Start
@@ -36,19 +35,21 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 ```bash
 # Init a new heatmap repo (creates repo + generates data + pushes)
 npx ai-heatmap init
-npx ai-heatmap init {user}-ai-heatmap
+# npx ai-heatmap init --repo {user}-ai-heatmap
 
 # Update data (generate + push)
 npx ai-heatmap update
-npx ai-heatmap update --repo {user}-ai-heatmap
+# npx ai-heatmap update --repo {user}-ai-heatmap
 ```
 
-## SVG API (Vercel)
+## SVG API (Vercel Only)
 
-~~Deploy~~ this repo to Vercel for a dynamic SVG endpoint. Embed it in any README:
+Deploy this repo to Vercel for a dynamic SVG endpoint. This is Vercel-only — GitHub Pages does not support serverless API routes.
+
+Embed it in any README:
 
 ```markdown
-![AI Heatmap](https://your-app.vercel.app/api/heatmap)
+![AI Heatmap](https://{user}}-ai-heatmap.vercel.app/api/heatmap)
 ```
 
 The SVG is generated on each request from `public/data.json`, so you can control the output with query parameters.
@@ -88,9 +89,17 @@ The SVG is generated on each request from `public/data.json`, so you can control
 /api/heatmap?start=2026-01-01&end=2026-02-18
 ```
 
-## GitHub Pages (Interactive)
+## GitHub Pages (Interactive + Static SVG)
 
 The interactive version with tooltips is deployed via GitHub Pages. Tooltips show cost, tokens, cache hit rate, and per-model breakdown.
+
+A static SVG (`heatmap.svg`) is also generated during build. You can embed it as an image:
+
+```markdown
+![AI Heatmap](https://{user}.github.io/{user}-ai-heatmap/heatmap.svg)
+```
+
+> Static SVG is pre-generated at build time. For real-time rendering, use the [Vercel SVG API](#svg-api-vercel-only).
 
 ### GitHub Pages Options
 
@@ -127,6 +136,10 @@ https://owner.github.io/{user}-ai-heatmap/?colorScheme=dark&blockSize=14
 
 ## Configuration
 
+```
+https://owner.github.io/{user}-ai-heatmap/heatmap.svg
+```
+
 Customize the static SVG output by editing `heatmap.config.json` in the project root:
 
 ```json
@@ -160,21 +173,14 @@ npx ai-heatmap update
 For automated updates, use a local cron job or macOS LaunchAgent:
 
 ```bash
-# crontab -e (runs daily at midnight)
 0 0 * * * npx --yes ai-heatmap@latest update
 ```
-
-> `--yes` skips the npx install prompt, required for non-interactive environments like cron.
 
 ## Upgrade
 
 To use the latest version of ai-heatmap:
 
 ```bash
-# Always uses latest (npx caches, so clear if needed)
-npx ai-heatmap@latest generate
-
-# Clear npx cache and run
 npx --yes ai-heatmap@latest update
 ```
 
@@ -186,36 +192,18 @@ npx --yes ai-heatmap@latest update
 2. Push `data.json` to `main` to trigger the first deploy
 3. Manual deploy: Actions tab > "Deploy AI Heatmap" > "Run workflow"
 
-### Vercel
+### Vercel (SVG API)
+
+```bash
+npx --yes ai-heatmap@latest deploy
+```
+
+Or manually:
 
 1. Import this repo on [vercel.com](https://vercel.com)
 2. Deploy (zero config — `vercel.json` included)
 3. Make public: Project Settings > Deployment Protection > Vercel Authentication > **OFF**
 4. Use the deployed URL for dynamic SVG embeds
-
-## Local Development
-
-```bash
-npm install
-npm run generate              # Generate data.json from ccusage
-npm run dev                   # Vite dev server (interactive heatmap)
-node scripts/serve-svg.mjs    # Local SVG API on :3333
-```
-
-## Project Structure
-
-```
-ai-heatmap/
-  api/heatmap.ts              # Vercel serverless SVG endpoint
-  bin/cli.mjs                 # CLI entrypoint
-  bin/init.mjs                # Repo scaffolding
-  bin/push.mjs                # Push data to GitHub
-  scripts/generate.mjs        # ccusage -> data.json
-  scripts/generate-svg.mjs    # data.json -> static heatmap.svg
-  scripts/serve-svg.mjs       # Local SVG dev server
-  src/App.tsx                 # React interactive heatmap
-  public/data.json            # Generated activity data
-```
 
 ## Star History
 
