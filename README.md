@@ -154,7 +154,7 @@ For the Vercel dynamic API, use query parameters instead (they override config).
 
 ```bash
 # Generate + push in one step
-npx ai-heatmap update --repo owner/my-ai-heatmap
+npx ai-heatmap update
 
 # Or manually
 npx ai-heatmap generate
@@ -165,7 +165,19 @@ For automated updates, use a local cron job or macOS LaunchAgent:
 
 ```bash
 # crontab -e (runs daily at midnight)
-0 0 * * * cd /path/to/ai-heatmap && npx ai-heatmap update --repo owner/my-ai-heatmap
+0 0 * * * npx ai-heatmap update
+```
+
+## Upgrade
+
+To use the latest version of ai-heatmap:
+
+```bash
+# Always uses latest (npx caches, so clear if needed)
+npx ai-heatmap@latest generate
+
+# Clear npx cache and run
+npx --yes ai-heatmap@latest update
 ```
 
 ## Deployment
