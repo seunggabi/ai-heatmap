@@ -16,6 +16,7 @@ Commands:
   generate [options]      Generate data.json from ccusage
   push [--repo <owner/repo>]  Push data.json to target repo (default: {user}/my-ai-heatmap)
   update [--repo <owner/repo>]  generate + push combined (default: {user}/my-ai-heatmap)
+  deploy                     Deploy to Vercel (SVG API endpoint)
 
 Generate options:
   --since YYYYMMDD        Start date
@@ -26,6 +27,7 @@ Examples:
   npx ai-heatmap generate --since 20260101
   npx ai-heatmap push --repo my-ai-heatmap
   npx ai-heatmap update --repo my-ai-heatmap
+  npx ai-heatmap deploy
 `;
 
 switch (command) {
@@ -53,6 +55,19 @@ switch (command) {
     const pushArgs = args.filter((a) => a.startsWith("--repo"));
     execSync(`node ${genScript} ${genArgs.join(" ")}`, { stdio: "inherit" });
     execSync(`node ${pushScript} ${pushArgs.join(" ")}`, { stdio: "inherit" });
+    break;
+  }
+  case "deploy": {
+    try {
+      execSync("vercel --version", { stdio: "ignore" });
+    } catch {
+      console.log("Installing Vercel CLI...");
+      execSync("npm install -g vercel", { stdio: "inherit" });
+    }
+    execSync(`vercel --prod ${args.join(" ")}`, {
+      cwd: root,
+      stdio: "inherit",
+    });
     break;
   }
   default:

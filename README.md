@@ -1,6 +1,9 @@
 # AI Heatmap
 
-GitHub-style heatmap for your AI usage costs. Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-calendar](https://github.com/grubersjoe/react-activity-calendar).
+GitHub-style heatmap for your AI usage costs. 
+Powered by 
+[ccusage](https://github.com/ryoppippi/ccusage)
+[react-activity-calendar](https://github.com/grubersjoe/react-activity-calendar).
 
 ## Preview
 
