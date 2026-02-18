@@ -14,6 +14,7 @@ ai-heatmap - AI usage cost heatmap
 Commands:
   init [repo-name]           Create a new heatmap repo and generate initial data
   update [--repo <owner/repo>]  Generate data + push to repo (default: {user}/{user}-ai-heatmap)
+  delete [repo-name]         Delete the heatmap GitHub repo
   deploy                     Deploy to Vercel (SVG API endpoint)
 
 Update options:
@@ -25,6 +26,7 @@ Examples:
   npx ai-heatmap init
   npx ai-heatmap update
   npx ai-heatmap update --repo {user}-ai-heatmap
+  npx ai-heatmap delete
   npx ai-heatmap deploy
 `;
 
@@ -43,6 +45,11 @@ switch (command) {
     const pushArgs = args.filter((a) => a.startsWith("--repo"));
     execSync(`node ${genScript} ${genArgs.join(" ")}`, { stdio: "inherit" });
     execSync(`node ${pushScript} ${pushArgs.join(" ")}`, { stdio: "inherit" });
+    break;
+  }
+  case "delete": {
+    const script = resolve(__dirname, "delete.mjs");
+    execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
     break;
   }
   case "deploy": {
