@@ -8,11 +8,6 @@
   "textColor": "",
   "start": "",
   "end": "",
-  "stats": {
-    "dailyAvg": true,
-    "weeklyAvg": true,
-    "peak": true,
-    "activeDays": true
-  },
+  "stats": true,
   "weekday": true
 }
