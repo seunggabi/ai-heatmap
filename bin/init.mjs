@@ -85,8 +85,12 @@ copyFileSync(
   resolve(targetDir, "api/heatmap.ts"),
 );
 
-// Create public/
+// Create public/ with config
 mkdirSync(resolve(targetDir, "public"), { recursive: true });
+copyFileSync(
+  resolve(templateRoot, "heatmap.config.json"),
+  resolve(targetDir, "public/heatmap.config.json"),
+);
 
 // GitHub Actions workflow
 const workflowDir = resolve(targetDir, ".github/workflows");
