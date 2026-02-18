@@ -1,0 +1,18 @@
+{
+  "colorScheme": "light",
+  "theme": "",
+  "blockSize": 16,
+  "blockMargin": 4,
+  "blockRadius": 3,
+  "bg": "",
+  "textColor": "",
+  "start": "",
+  "end": "",
+  "stats": {
+    "dailyAvg": true,
+    "weeklyAvg": true,
+    "peak": true,
+    "activeDays": true
+  },
+  "weekday": true
+}

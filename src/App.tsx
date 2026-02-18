@@ -46,9 +46,24 @@ const DEFAULT_OPTIONS: CalendarOptions = {
   colorScheme: "light",
 };
 
-function parseOptions(): CalendarOptions {
+interface HeatmapConfig {
+  colorScheme?: string;
+  blockSize?: number;
+  blockMargin?: number;
+  blockRadius?: number;
+  start?: string;
+  end?: string;
+}
+
+function parseOptions(config: HeatmapConfig = {}): CalendarOptions {
   const params = new URLSearchParams(window.location.search);
-  const opts = { ...DEFAULT_OPTIONS };
+  const opts: CalendarOptions = {
+    ...DEFAULT_OPTIONS,
+    ...(config.blockSize != null && { blockSize: config.blockSize }),
+    ...(config.blockMargin != null && { blockMargin: config.blockMargin }),
+    ...(config.blockRadius != null && { blockRadius: config.blockRadius }),
+    ...((config.colorScheme === "light" || config.colorScheme === "dark") && { colorScheme: config.colorScheme }),
+  };
 
   const bool = (key: keyof CalendarOptions) => {
     const v = params.get(key);
@@ -100,12 +115,13 @@ function shortModel(name: string) {
 
 export default function App() {
   const [data, setData] = useState<Activity[]>([]);
-  const [options] = useState(parseOptions);
+  const [options, setOptions] = useState(() => parseOptions());
   const [error, setError] = useState<string | null>(null);
+  const [configDates, setConfigDates] = useState<{ start?: string; end?: string }>({});
 
   const params = new URLSearchParams(window.location.search);
-  const startDate = params.get("start");
-  const endDate = params.get("end");
+  const startDate = params.get("start") || configDates.start || null;
+  const endDate = params.get("end") || configDates.end || null;
 
   useEffect(() => {
     fetch("./data.json")
@@ -115,6 +131,17 @@ export default function App() {
       })
       .then(setData)
       .catch((e) => setError(`Failed to load data.json: ${e.message}`));
+
+    fetch("./heatmap.config.json")
+      .then((r) => r.ok ? r.json() : null)
+      .then((config: HeatmapConfig | null) => {
+        if (!config) return;
+        setOptions(parseOptions(config));
+        if (config.start || config.end) {
+          setConfigDates({ start: config.start, end: config.end });
+        }
+      })
+      .catch(() => {});
   }, []);
 
   if (error) {
