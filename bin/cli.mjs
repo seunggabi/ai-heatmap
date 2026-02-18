@@ -13,10 +13,11 @@ const HELP = `
 ai-heatmap - AI usage cost heatmap
 
 Commands:
-  init    [--repo <name>]        Create a new heatmap repo and generate initial data
-  update  [--repo <owner/repo>]  Generate data + push to repo
-  delete  [--repo <name>]        Delete the heatmap GitHub repo
-  deploy  [--repo <name>]        Deploy to Vercel (SVG API endpoint)
+  init          [--repo <name>]        Create a new heatmap repo and generate initial data
+  update        [--repo <owner/repo>]  Generate data + push to repo
+  generate-svg                         Generate heatmap.svg from data.json
+  delete        [--repo <name>]        Delete the heatmap GitHub repo
+  deploy        [--repo <name>]        Deploy to Vercel (SVG API endpoint)
 
 Options:
   --repo <name>           Target repo (default: {user}-ai-heatmap)
@@ -59,6 +60,11 @@ switch (command) {
     const script = resolve(__dirname, "delete.mjs");
     const repoName = getArg("--repo") || args[0] || "";
     execSync(`node ${script} ${repoName}`, { stdio: "inherit" });
+    break;
+  }
+  case "generate-svg": {
+    const svgScript = resolve(root, "scripts/generate-svg.mjs");
+    execSync(`node ${svgScript}`, { stdio: "inherit", cwd: process.cwd() });
     break;
   }
   case "deploy": {

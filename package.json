@@ -23,7 +23,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate:svg": "tsx scripts/generate-svg.ts",
+    "generate:svg": "node scripts/generate-svg.mjs",
     "update": "node bin/cli.mjs update",
     "deploy": "npm run generate && npm run generate:svg && npm run build",
     "test": "vitest run"
