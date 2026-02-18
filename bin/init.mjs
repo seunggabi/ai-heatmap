@@ -87,9 +87,22 @@ copyFileSync(
 
 // Create public/ with config
 mkdirSync(resolve(targetDir, "public"), { recursive: true });
-copyFileSync(
-  resolve(templateRoot, "heatmap.config.json"),
+const defaultConfig = {
+  colorScheme: "light",
+  theme: "",
+  blockSize: 16,
+  blockMargin: 4,
+  blockRadius: 3,
+  bg: "",
+  textColor: "",
+  start: "",
+  end: "",
+  stats: true,
+  weekday: true,
+};
+writeFileSync(
   resolve(targetDir, "public/heatmap.config.json"),
+  JSON.stringify(defaultConfig, null, 2),
 );
 
 // GitHub Actions workflow
