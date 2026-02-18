@@ -161,8 +161,10 @@ For automated updates, use a local cron job or macOS LaunchAgent:
 
 ```bash
 # crontab -e (runs daily at midnight)
-0 0 * * * npx ai-heatmap update
+0 0 * * * npx --yes ai-heatmap@latest update
 ```
+
+> `--yes` skips the npx install prompt, required for non-interactive environments like cron.
 
 ## Upgrade
 
