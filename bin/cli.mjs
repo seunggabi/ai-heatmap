@@ -12,20 +12,18 @@ const HELP = `
 ai-heatmap - AI usage cost heatmap
 
 Commands:
-  init [repo-name]        Create a new heatmap GitHub Pages repo
-  generate [options]      Generate data.json from ccusage
-  push [--repo <owner/repo>]  Push data.json to target repo (default: {user}/{user}-ai-heatmap)
-  update [--repo <owner/repo>]  generate + push combined (default: {user}/{user}-ai-heatmap)
+  init [repo-name]           Create a new heatmap repo and generate initial data
+  update [--repo <owner/repo>]  Generate data + push to repo (default: {user}/{user}-ai-heatmap)
   deploy                     Deploy to Vercel (SVG API endpoint)
 
-Generate options:
+Update options:
   --since YYYYMMDD        Start date
   --until YYYYMMDD        End date
+  --repo <owner/repo>     Target repo (default: auto-detect)
 
 Examples:
-  npx ai-heatmap init {user}-ai-heatmap
-  npx ai-heatmap generate --since 20260101
-  npx ai-heatmap push --repo {user}-ai-heatmap
+  npx ai-heatmap init
+  npx ai-heatmap update
   npx ai-heatmap update --repo {user}-ai-heatmap
   npx ai-heatmap deploy
 `;
@@ -33,16 +31,6 @@ Examples:
 switch (command) {
   case "init": {
     const script = resolve(__dirname, "init.mjs");
-    execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
-    break;
-  }
-  case "generate": {
-    const script = resolve(root, "scripts/generate.mjs");
-    execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
-    break;
-  }
-  case "push": {
-    const script = resolve(__dirname, "push.mjs");
     execSync(`node ${script} ${args.join(" ")}`, { stdio: "inherit" });
     break;
   }

@@ -29,18 +29,11 @@ Powered by
 ## Quick Start
 
 ```bash
-# Generate data from local ccusage logs
-npx ai-heatmap generate
-
-# Init a new GitHub Pages repo
+# Init a new heatmap repo (creates repo + generates data + pushes)
 npx ai-heatmap init
 npx ai-heatmap init {user}-ai-heatmap
 
-# Push data to repo
-npx ai-heatmap push
-npx ai-heatmap push --repo {user}-ai-heatmap
-
-# Generate + push in one step
+# Update data (generate + push)
 npx ai-heatmap update
 npx ai-heatmap update --repo {user}-ai-heatmap
 ```
@@ -156,12 +149,7 @@ For the Vercel dynamic API, use query parameters instead (they override config).
 `ccusage` reads Claude Code usage logs from your **local machine**, so data must be generated locally and pushed to the repo.
 
 ```bash
-# Generate + push in one step
 npx ai-heatmap update
-
-# Or manually
-npx ai-heatmap generate
-git add public/data.json && git commit -m "update data" && git push
 ```
 
 For automated updates, use a local cron job or macOS LaunchAgent:
