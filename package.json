@@ -1,6 +1,6 @@
 {
   "name": "ai-heatmap",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "AI usage cost heatmap powered by ccusage + react-activity-calendar",
   "type": "module",
   "bin": {
