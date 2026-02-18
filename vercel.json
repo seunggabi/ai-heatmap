@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run deploy",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite"
 }
