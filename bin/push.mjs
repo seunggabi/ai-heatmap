@@ -11,14 +11,18 @@ const args = process.argv.slice(2);
 const repoIdx = args.indexOf("--repo");
 let repo = repoIdx !== -1 ? args[repoIdx + 1] : null;
 
-if (!repo) {
-  try {
-    const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+try {
+  const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+  if (!repo) {
     repo = `${owner}/my-ai-heatmap`;
     console.log(`No --repo specified, using default: ${repo}`);
-  } catch {
+  } else if (!repo.includes("/")) {
+    repo = `${owner}/${repo}`;
+  }
+} catch {
+  if (!repo || !repo.includes("/")) {
     console.error("Usage: ai-heatmap push --repo <owner/repo>");
-    console.error("Example: ai-heatmap push --repo seunggabi/my-ai-heatmap");
+    console.error("Example: ai-heatmap push --repo <owner>/my-ai-heatmap");
     process.exit(1);
   }
 }
