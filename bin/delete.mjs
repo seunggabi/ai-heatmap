@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import { execSync } from "node:child_process";
+import { existsSync, rmSync } from "node:fs";
+import { resolve } from "node:path";
 
 let owner;
 try {
@@ -11,6 +13,7 @@ try {
 
 const repoName = process.argv[2] || `${owner}-ai-heatmap`;
 const repo = repoName.includes("/") ? repoName : `${owner}/${repoName}`;
+const localName = repoName.includes("/") ? repoName.split("/")[1] : repoName;
 
 console.log(`Deleting GitHub repo: ${repo}...`);
 
@@ -19,5 +22,12 @@ try {
   console.log(`Deleted ${repo}`);
 } catch {
   console.error(`Failed to delete ${repo}. Check gh auth and repo permissions.`);
-  process.exit(1);
+}
+
+// Remove local directory if it exists
+const localDir = resolve(process.cwd(), localName);
+if (existsSync(localDir)) {
+  console.log(`Removing local directory: ${localDir}`);
+  rmSync(localDir, { recursive: true, force: true });
+  console.log(`Removed ${localDir}`);
 }
