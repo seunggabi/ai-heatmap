@@ -148,16 +148,25 @@ ${DAY_NAMES.map((name, i) => {
 
 // --- Main ---
 
-const configPath = resolve(root, "heatmap.config.json");
+const cwd = process.cwd();
+const configPath = resolve(cwd, "public/heatmap.config.json");
+const fallbackConfigPath = resolve(cwd, "heatmap.config.json");
 const defaults = {
   colorScheme: "light", theme: "", blockSize: 16, blockMargin: 4, blockRadius: 3,
   bg: "", textColor: "", start: "", end: "", stats: true, weekday: true,
 };
 const config = existsSync(configPath)
   ? { ...defaults, ...JSON.parse(readFileSync(configPath, "utf-8")) }
-  : defaults;
+  : existsSync(fallbackConfigPath)
+    ? { ...defaults, ...JSON.parse(readFileSync(fallbackConfigPath, "utf-8")) }
+    : defaults;
 
-let data = JSON.parse(readFileSync(resolve(root, "public/data.json"), "utf-8"));
+const dataPath = resolve(cwd, "public/data.json");
+if (!existsSync(dataPath)) {
+  console.log(`No data.json found at ${dataPath}, skipping SVG generation.`);
+  process.exit(0);
+}
+let data = JSON.parse(readFileSync(dataPath, "utf-8"));
 if (config.start) data = data.filter(d => d.date >= config.start);
 if (config.end) data = data.filter(d => d.date <= config.end);
 
@@ -168,6 +177,6 @@ const svg = buildHeatmapSVG(data, {
   stats: config.stats, weekday: config.weekday,
 });
 
-const outPath = resolve(root, "public/heatmap.svg");
+const outPath = resolve(cwd, "public/heatmap.svg");
 writeFileSync(outPath, svg);
 console.log(`Generated ${outPath}`);
