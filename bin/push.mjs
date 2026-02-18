@@ -9,12 +9,18 @@ const root = resolve(__dirname, "..");
 
 const args = process.argv.slice(2);
 const repoIdx = args.indexOf("--repo");
-const repo = repoIdx !== -1 ? args[repoIdx + 1] : null;
+let repo = repoIdx !== -1 ? args[repoIdx + 1] : null;
 
 if (!repo) {
-  console.error("Usage: ai-heatmap push --repo <owner/repo>");
-  console.error("Example: ai-heatmap push --repo seunggabi/my-ai-heatmap");
-  process.exit(1);
+  try {
+    const owner = execSync("gh api user --jq .login", { encoding: "utf-8" }).trim();
+    repo = `${owner}/my-ai-heatmap`;
+    console.log(`No --repo specified, using default: ${repo}`);
+  } catch {
+    console.error("Usage: ai-heatmap push --repo <owner/repo>");
+    console.error("Example: ai-heatmap push --repo seunggabi/my-ai-heatmap");
+    process.exit(1);
+  }
 }
 
 const dataPath = resolve(root, "public/data.json");

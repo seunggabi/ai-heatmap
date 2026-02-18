@@ -14,8 +14,8 @@ ai-heatmap - AI usage cost heatmap
 Commands:
   init [repo-name]        Create a new heatmap GitHub Pages repo
   generate [options]      Generate data.json from ccusage
-  push --repo <owner/repo>  Push data.json to target repo
-  update --repo <owner/repo>  generate + push combined
+  push [--repo <owner/repo>]  Push data.json to target repo (default: {user}/my-ai-heatmap)
+  update [--repo <owner/repo>]  generate + push combined (default: {user}/my-ai-heatmap)
 
 Generate options:
   --since YYYYMMDD        Start date
