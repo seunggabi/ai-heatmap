@@ -18,8 +18,6 @@ gh auth login
 ```
 
 ```bash
-USER=$(gh api user -q .login)
-
 # npx --yes ai-heatmap@latest delete
 npx --yes ai-heatmap@latest init
 
@@ -28,9 +26,9 @@ open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
 ```
 
 ```bash
-USER=$(gh api user -q .login)
-
 npx --yes ai-heatmap@latest deploy
+
+USER=$(gh api user -q .login)
 open "https://${USER}-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark"
 ```
 
