@@ -11,12 +11,12 @@ const args = process.argv.slice(2);
 const sinceFlag = args.find((a) => a.startsWith("--since"));
 const untilFlag = args.find((a) => a.startsWith("--until"));
 
-let cmd = "npx ccusage@latest daily --json";
+let cmd = "npx --yes ccusage@latest daily --json";
 if (sinceFlag) cmd += ` ${sinceFlag}`;
 if (untilFlag) cmd += ` ${untilFlag}`;
 
 console.log(`Running: ${cmd}`);
-const raw = execSync(cmd, { encoding: "utf-8", timeout: 30000 });
+const raw = execSync(cmd, { encoding: "utf-8", timeout: 300000 });
 const { daily } = JSON.parse(raw);
 
 const costs = daily.map((d) => d.totalCost);

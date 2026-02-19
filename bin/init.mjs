@@ -129,7 +129,7 @@ readmeLines.push(
   "### Cron (daily update)",
   "",
   "```bash",
-  "0 0 * * * npx --yes ai-heatmap@latest update",
+  "0 0 * * * npx --yes ai-heatmap@latest update &",
   "```",
   "",
   "## Dynamic SVG (by Vercel)",
