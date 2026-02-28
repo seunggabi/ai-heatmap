@@ -13,7 +13,8 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 ## Quick Start
 
 ```bash
-curl -sS https://webi.sh/gh | sh
+curl -sS https://webi.sh/node | sh  # Node.js (includes npx)
+curl -sS https://webi.sh/gh | sh    # GitHub CLI
 gh auth login
 ```
 
@@ -188,6 +189,15 @@ GH_TOKEN=ghp_xxx
 
 0 0 * * * npx --yes ai-heatmap@latest update
 ```
+
+> **`npx: not found`?** cron uses a minimal PATH. Fix with:
+> ```bash
+> # Find npx path
+> which npx   # e.g. /home/user/.local/bin/npx
+>
+> # Use full path in cron
+> 0 0 * * * PATH=$HOME/.local/bin:$PATH npx --yes ai-heatmap@latest update
+> ```
 
 ## Upgrade
 
