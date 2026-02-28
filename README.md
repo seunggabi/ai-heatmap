@@ -20,14 +20,14 @@ gh auth login
 
 ```bash
 # npx --yes ai-heatmap@latest delete
-npx clear-npx-cache && npx --yes ai-heatmap@latest init
+npx --yes clear-npx-cache && npx --yes ai-heatmap@latest init
 
 USER=$(gh api user -q .login)
 open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
 ```
 
 ```bash
-npx clear-npx-cache && npx --yes ai-heatmap@latest deploy
+npx --yes clear-npx-cache && npx --yes ai-heatmap@latest deploy
 
 USER=$(gh api user -q .login)
 open "https://${USER}-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark"
@@ -187,7 +187,7 @@ For automated updates, use a local cron job or macOS LaunchAgent:
 CLAUDE_CODE_OAUTH_TOKEN=sk-ant-xxx
 GH_TOKEN=ghp_xxx
 
-0 0 * * * npx clear-npx-cache && npx --yes ai-heatmap@latest update
+0 0 * * * npx --yes clear-npx-cache && npx --yes ai-heatmap@latest update
 ```
 
 > **`npx: not found`?** cron uses a minimal PATH. Fix with:
@@ -196,7 +196,7 @@ GH_TOKEN=ghp_xxx
 > which npx   # e.g. /home/user/.local/bin/npx
 >
 > # Use full path in cron
-> 0 0 * * * PATH=$HOME/.local/bin:$PATH npx clear-npx-cache && PATH=$HOME/.local/bin:$PATH npx --yes ai-heatmap@latest update
+> 0 0 * * * PATH=$HOME/.local/bin:$PATH npx --yes clear-npx-cache && PATH=$HOME/.local/bin:$PATH npx --yes ai-heatmap@latest update
 > ```
 
 ## Upgrade
@@ -204,12 +204,12 @@ GH_TOKEN=ghp_xxx
 To use the latest version of ai-heatmap:
 
 ```bash
-npx clear-npx-cache && npx --yes ai-heatmap@latest update
+npx --yes clear-npx-cache && npx --yes ai-heatmap@latest update
 ```
 
 > **Still running an old version?** npx caches packages locally. If the update command behaves unexpectedly after a release, clear the cache:
 > ```bash
-> npx clear-npx-cache
+> npx --yes clear-npx-cache
 > npx --yes ai-heatmap@latest update
 > ```
 
@@ -228,7 +228,7 @@ npm publish
 ### Vercel (SVG API)
 
 ```bash
-npx clear-npx-cache && npx --yes ai-heatmap@latest deploy
+npx --yes clear-npx-cache && npx --yes ai-heatmap@latest deploy
 ```
 
 Or manually:
