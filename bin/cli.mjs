@@ -15,12 +15,14 @@ ai-heatmap - AI usage cost heatmap
 Commands:
   init          [--repo <name>]        Create a new heatmap repo and generate initial data
   update        [--repo <owner/repo>]  Generate data + push to repo
+                [--name <machine>]
   generate-svg                         Generate heatmap.svg from data.json
   delete        [--repo <name>]        Delete the heatmap GitHub repo
   deploy        [--repo <name>]        Deploy to Vercel (SVG API endpoint)
 
 Options:
   --repo <name>           Target repo (default: {user}-ai-heatmap)
+  --name <machine>        Machine name for per-device data file (update only)
   --since YYYYMMDD        Start date (update only)
   --until YYYYMMDD        End date (update only)
 
@@ -49,7 +51,7 @@ switch (command) {
     const genScript = resolve(root, "scripts/generate.mjs");
     const pushScript = resolve(__dirname, "push.mjs");
     const genArgs = args.filter(
-      (a) => a.startsWith("--since") || a.startsWith("--until"),
+      (a) => a.startsWith("--since") || a.startsWith("--until") || a.startsWith("--name"),
     );
     const pushArgs = args.filter((a) => a.startsWith("--repo"));
     execSync(`node ${genScript} ${genArgs.join(" ")}`, { stdio: "inherit" });
