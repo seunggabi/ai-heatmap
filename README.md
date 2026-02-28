@@ -199,6 +199,10 @@ npx --yes ai-heatmap@latest update
 
 ## Deployment
 
+```bash
+npm publish
+```
+
 ### GitHub Pages
 
 1. Enable GitHub Pages (Settings > Pages > Source: GitHub Actions)
