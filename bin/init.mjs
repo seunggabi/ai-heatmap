@@ -140,7 +140,7 @@ readmeLines.push(
   `![AI Heatmap](https://${repoName}.vercel.app/api/heatmap?theme=blue&colorScheme=dark)`,
   "",
   "```bash",
-  "npx --yes ai-heatmap@latest deploy",
+  "npx clear-npx-cache && npx --yes ai-heatmap@latest deploy",
   "```",
   "",
 );

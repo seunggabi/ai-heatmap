@@ -27,7 +27,7 @@ open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
 ```
 
 ```bash
-npx --yes ai-heatmap@latest deploy
+npx clear-npx-cache && npx --yes ai-heatmap@latest deploy
 
 USER=$(gh api user -q .login)
 open "https://${USER}-ai-heatmap.vercel.app/api/heatmap?colorScheme=dark"
@@ -204,7 +204,7 @@ GH_TOKEN=ghp_xxx
 To use the latest version of ai-heatmap:
 
 ```bash
-npx --yes ai-heatmap@latest update
+npx clear-npx-cache && npx --yes ai-heatmap@latest update
 ```
 
 > **Still running an old version?** npx caches packages locally. If the update command behaves unexpectedly after a release, clear the cache:
@@ -228,7 +228,7 @@ npm publish
 ### Vercel (SVG API)
 
 ```bash
-npx --yes ai-heatmap@latest deploy
+npx clear-npx-cache && npx --yes ai-heatmap@latest deploy
 ```
 
 Or manually:
