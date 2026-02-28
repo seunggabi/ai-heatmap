@@ -20,7 +20,7 @@ gh auth login
 
 ```bash
 # npx --yes ai-heatmap@latest delete
-npx --yes ai-heatmap@latest init
+npx clear-npx-cache && npx --yes ai-heatmap@latest init
 
 USER=$(gh api user -q .login)
 open "https://${USER}.github.io/${USER}-ai-heatmap/heatmap.svg"
@@ -196,7 +196,7 @@ GH_TOKEN=ghp_xxx
 > which npx   # e.g. /home/user/.local/bin/npx
 >
 > # Use full path in cron
-> 0 0 * * * PATH=$HOME/.local/bin:$PATH npx --yes ai-heatmap@latest update
+> 0 0 * * * PATH=$HOME/.local/bin:$PATH npx clear-npx-cache && PATH=$HOME/.local/bin:$PATH npx --yes ai-heatmap@latest update
 > ```
 
 ## Upgrade
