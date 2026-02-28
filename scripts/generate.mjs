@@ -126,6 +126,7 @@ for (const file of dataFiles) {
         totalTokens: 0,
         cacheReadTokens: 0,
         cacheCreationTokens: 0,
+        modelsUsed: new Set(),
         modelBreakdowns: new Map(),
       });
     }
@@ -136,6 +137,10 @@ for (const file of dataFiles) {
     m.totalTokens += entry.totalTokens ?? 0;
     m.cacheReadTokens += entry.cacheReadTokens ?? 0;
     m.cacheCreationTokens += entry.cacheCreationTokens ?? 0;
+
+    for (const model of (entry.modelsUsed ?? [])) {
+      m.modelsUsed.add(model);
+    }
 
     for (const mb of (entry.modelBreakdowns ?? [])) {
       const prev = m.modelBreakdowns.get(mb.model) ?? 0;
@@ -164,6 +169,9 @@ const merged = [...mergeMap.values()]
     }
     if (cacheTotal > 0) {
       result.cacheHitRate = Math.round((m.cacheReadTokens / cacheTotal) * 100);
+    }
+    if (m.modelsUsed.size > 0) {
+      result.modelsUsed = [...m.modelsUsed];
     }
     const mbs = [...m.modelBreakdowns.entries()].map(([model, cost]) => ({ model, cost }));
     if (mbs.length > 0) {
