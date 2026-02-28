@@ -130,7 +130,7 @@ switch (command) {
     let remoteFiles = [];
     try {
       const raw = execSync(
-        `gh api repos/${repo}/contents/public --jq '[.[] | select(.name | test("^data-.+\\.json$"))]'`,
+        `gh api repos/${repo}/contents/public --jq '[.[] | select(.name | test("^data-.+[.]json$"))]'`,
         { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
       );
       remoteFiles = JSON.parse(raw);
