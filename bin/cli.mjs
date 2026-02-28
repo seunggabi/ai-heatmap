@@ -136,7 +136,12 @@ switch (command) {
       for (const file of files) {
         // 현재 컴퓨터 파일은 generate에서 새로 생성하므로 건너뜀
         if (file.name === `data-${machineName}.json`) continue;
-        const decoded = Buffer.from(file.content.replace(/\n/g, ""), "base64").toString("utf-8");
+        // 디렉토리 목록 API는 content를 포함하지 않으므로 파일별로 개별 fetch
+        const content = execSync(
+          `gh api repos/${repo}/contents/${file.path} --jq .content`,
+          { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
+        ).trim();
+        const decoded = Buffer.from(content.replace(/\n/g, ""), "base64").toString("utf-8");
         writeFileSync(resolve(outDir, file.name), decoded);
         console.log(`  Fetched ${file.name}`);
       }

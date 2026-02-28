@@ -74,7 +74,7 @@ if (!mergeOnly) {
   for (let i = 364; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(d.getDate() - i);
-    const date = d.toISOString().slice(0, 10);
+    const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
     const entry = dataMap.get(date);
     if (entry) {
       const cacheReadTokens = entry.cacheReadTokens ?? 0;
