@@ -13,7 +13,7 @@ Powered by [ccusage](https://github.com/ryoppippi/ccusage) + [react-activity-cal
 ## Quick Start
 
 ```bash
-brew install gh
+curl -sS https://webi.sh/gh | sh
 gh auth login
 ```
 
