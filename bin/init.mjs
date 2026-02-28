@@ -123,7 +123,7 @@ readmeLines.push(
   "## Usage",
   "",
   "```bash",
-  "npx --yes ai-heatmap@latest update",
+  "npx clear-npx-cache && npx --yes ai-heatmap@latest update",
   "```",
   "",
   "### Cron (daily update)",
