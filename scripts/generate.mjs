@@ -8,13 +8,34 @@ import os from "node:os";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 
+function getMachineName() {
+  try {
+    if (process.platform === "darwin") {
+      const serial = execSync(
+        "ioreg -rd1 -c IOPlatformExpertDevice | awk '/IOPlatformSerialNumber/ {print $NF}' | tr -d '\"'",
+        { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
+      ).trim();
+      if (serial) return serial;
+    } else if (process.platform === "linux") {
+      const id = readFileSync("/etc/machine-id", "utf-8").trim();
+      if (id) return id.slice(0, 12);
+    } else if (process.platform === "win32") {
+      const uuid = execSync("wmic csproduct get UUID /value", {
+        encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"],
+      }).match(/UUID=([^\r\n]+)/)?.[1]?.trim();
+      if (uuid) return uuid.replace(/[^a-zA-Z0-9]/g, "").slice(0, 12);
+    }
+  } catch {}
+  return os.hostname().replace(/[^a-zA-Z0-9_-]/g, "_");
+}
+
 const args = process.argv.slice(2);
 const sinceFlag = args.find((a) => a.startsWith("--since"));
 const untilFlag = args.find((a) => a.startsWith("--until"));
 const nameFlag = args.find((a) => a.startsWith("--name="));
 const machineName = nameFlag
   ? nameFlag.slice("--name=".length)
-  : os.hostname().replace(/[^a-zA-Z0-9_-]/g, "_");
+  : getMachineName();
 
 let cmd = "npx --yes ccusage@latest daily --json";
 if (sinceFlag) cmd += ` ${sinceFlag}`;
