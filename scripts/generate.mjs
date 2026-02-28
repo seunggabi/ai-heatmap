@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import { execSync } from "node:child_process";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import os from "node:os";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -10,6 +11,10 @@ const root = resolve(__dirname, "..");
 const args = process.argv.slice(2);
 const sinceFlag = args.find((a) => a.startsWith("--since"));
 const untilFlag = args.find((a) => a.startsWith("--until"));
+const nameFlag = args.find((a) => a.startsWith("--name="));
+const machineName = nameFlag
+  ? nameFlag.slice("--name=".length)
+  : os.hostname().replace(/[^a-zA-Z0-9_-]/g, "_");
 
 let cmd = "npx --yes ccusage@latest daily --json";
 if (sinceFlag) cmd += ` ${sinceFlag}`;
@@ -22,9 +27,9 @@ const { daily } = JSON.parse(raw);
 const costs = daily.map((d) => d.totalCost);
 const maxCost = Math.max(...costs);
 
-function toLevel(cost) {
-  if (cost === 0 || maxCost === 0) return 0;
-  const ratio = cost / maxCost;
+function toLevel(cost, max) {
+  if (cost === 0 || max === 0) return 0;
+  const ratio = cost / max;
   if (ratio <= 0.25) return 1;
   if (ratio <= 0.5) return 2;
   if (ratio <= 0.75) return 3;
@@ -43,17 +48,21 @@ for (let i = 364; i >= 0; i--) {
   const date = d.toISOString().slice(0, 10);
   const entry = dataMap.get(date);
   if (entry) {
-    const cacheTotal = entry.cacheCreationTokens + entry.cacheReadTokens;
+    const cacheReadTokens = entry.cacheReadTokens ?? 0;
+    const cacheCreationTokens = entry.cacheCreationTokens ?? 0;
+    const cacheTotal = cacheCreationTokens + cacheReadTokens;
     const cacheHitRate = cacheTotal > 0
-      ? Math.round((entry.cacheReadTokens / cacheTotal) * 100)
+      ? Math.round((cacheReadTokens / cacheTotal) * 100)
       : 0;
     activities.push({
       date,
       count: Math.round(entry.totalCost * 100) / 100,
-      level: toLevel(entry.totalCost),
+      level: toLevel(entry.totalCost, maxCost),
       inputTokens: entry.inputTokens,
       outputTokens: entry.outputTokens,
       totalTokens: entry.totalTokens,
+      cacheReadTokens,
+      cacheCreationTokens,
       cacheHitRate,
       modelsUsed: entry.modelsUsed,
       modelBreakdowns: entry.modelBreakdowns.map((m) => ({
@@ -68,6 +77,80 @@ for (let i = 364; i >= 0; i--) {
 
 const outDir = resolve(root, "public");
 mkdirSync(outDir, { recursive: true });
+
+// 1. 컴퓨터별 개별 파일 저장
+const machineFile = resolve(outDir, `data-${machineName}.json`);
+writeFileSync(machineFile, JSON.stringify(activities, null, 2));
+console.log(`Generated ${machineFile} (${activities.length} days)`);
+
+// 2. 모든 data-{name}.json 파일을 읽어서 합산
+const dataFiles = readdirSync(outDir)
+  .filter((f) => f.match(/^data-.+\.json$/))
+  .sort()
+  .map((f) => resolve(outDir, f));
+
+console.log(`Merging ${dataFiles.length} file(s): ${dataFiles.map((f) => f.split("/").pop()).join(", ")}`);
+
+const mergeMap = new Map();
+
+for (const file of dataFiles) {
+  const fileData = JSON.parse(readFileSync(file, "utf-8"));
+  for (const entry of fileData) {
+    if (!mergeMap.has(entry.date)) {
+      mergeMap.set(entry.date, {
+        date: entry.date,
+        count: 0,
+        inputTokens: 0,
+        outputTokens: 0,
+        totalTokens: 0,
+        cacheReadTokens: 0,
+        cacheCreationTokens: 0,
+        modelBreakdowns: new Map(),
+      });
+    }
+    const m = mergeMap.get(entry.date);
+    m.count = Math.round((m.count + (entry.count ?? 0)) * 100) / 100;
+    m.inputTokens += entry.inputTokens ?? 0;
+    m.outputTokens += entry.outputTokens ?? 0;
+    m.totalTokens += entry.totalTokens ?? 0;
+    m.cacheReadTokens += entry.cacheReadTokens ?? 0;
+    m.cacheCreationTokens += entry.cacheCreationTokens ?? 0;
+
+    for (const mb of (entry.modelBreakdowns ?? [])) {
+      const prev = m.modelBreakdowns.get(mb.model) ?? 0;
+      m.modelBreakdowns.set(mb.model, Math.round((prev + mb.cost) * 100) / 100);
+    }
+  }
+}
+
+// 합산된 최대값 기준으로 level 재계산
+const allCounts = [...mergeMap.values()].map((m) => m.count);
+const mergedMax = Math.max(...allCounts);
+
+const merged = [...mergeMap.values()]
+  .sort((a, b) => a.date.localeCompare(b.date))
+  .map((m) => {
+    const cacheTotal = m.cacheReadTokens + m.cacheCreationTokens;
+    const result = {
+      date: m.date,
+      count: m.count,
+      level: toLevel(m.count, mergedMax),
+    };
+    if (m.inputTokens || m.outputTokens || m.totalTokens) {
+      result.inputTokens = m.inputTokens;
+      result.outputTokens = m.outputTokens;
+      result.totalTokens = m.totalTokens;
+    }
+    if (cacheTotal > 0) {
+      result.cacheHitRate = Math.round((m.cacheReadTokens / cacheTotal) * 100);
+    }
+    const mbs = [...m.modelBreakdowns.entries()].map(([model, cost]) => ({ model, cost }));
+    if (mbs.length > 0) {
+      result.modelBreakdowns = mbs;
+    }
+    return result;
+  });
+
 const outPath = resolve(outDir, "data.json");
-writeFileSync(outPath, JSON.stringify(activities, null, 2));
-console.log(`Generated ${outPath} (${activities.length} days)`);
+writeFileSync(outPath, JSON.stringify(merged, null, 2));
+console.log(`Merged into ${outPath} (${merged.length} days)`);
