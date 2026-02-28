@@ -59,7 +59,20 @@ if (!mergeOnly) {
   if (untilFlag) cmd += ` ${untilFlag}`;
 
   console.log(`Running: ${cmd}`);
-  const raw = execSync(cmd, { encoding: "utf-8", timeout: 300000 });
+  let raw;
+  try {
+    raw = execSync(cmd, { encoding: "utf-8", timeout: 300000 });
+  } catch (err) {
+    if (err.code === "ETIMEDOUT" || err.signal === "SIGTERM") {
+      console.error("\nError: ccusage timed out after 5 minutes.");
+      console.error("This may be caused by a slow network or npm registry issue.");
+      console.error("Try running manually: npx clear-npx-cache && npx --yes ccusage@latest daily --json");
+    } else {
+      console.error("\nError running ccusage:", err.message);
+      if (err.stderr) console.error(err.stderr);
+    }
+    process.exit(1);
+  }
   const { daily } = JSON.parse(raw);
 
   const costs = daily.map((d) => d.totalCost);
