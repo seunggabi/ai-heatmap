@@ -207,6 +207,12 @@ To use the latest version of ai-heatmap:
 npx --yes ai-heatmap@latest update
 ```
 
+> **Still running an old version?** npx caches packages locally. If the update command behaves unexpectedly after a release, clear the cache:
+> ```bash
+> npx clear-npx-cache
+> npx --yes ai-heatmap@latest update
+> ```
+
 ## Deployment
 
 ```bash
