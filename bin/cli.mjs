@@ -127,16 +127,21 @@ switch (command) {
     // 1. GitHub API로 다른 컴퓨터의 data-*.json 파일들을 로컬에 다운로드
     console.log(`Fetching machine data files from ${repo}...`);
     mkdirSync(outDir, { recursive: true });
+    let remoteFiles = [];
     try {
       const raw = execSync(
         `gh api repos/${repo}/contents/public --jq '[.[] | select(.name | test("^data-.+\\.json$"))]'`,
         { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
       );
-      const files = JSON.parse(raw);
-      for (const file of files) {
-        // 현재 컴퓨터 파일은 generate에서 새로 생성하므로 건너뜀
-        if (file.name === `data-${machineName}.json`) continue;
-        // 디렉토리 목록 API는 content를 포함하지 않으므로 파일별로 개별 fetch
+      remoteFiles = JSON.parse(raw);
+    } catch {
+      console.log("  No existing machine data files found (first run).");
+    }
+    for (const file of remoteFiles) {
+      // 현재 컴퓨터 파일은 generate에서 새로 생성하므로 건너뜀
+      if (file.name === `data-${machineName}.json`) continue;
+      // 디렉토리 목록 API는 content를 포함하지 않으므로 파일별로 개별 fetch
+      try {
         const content = execSync(
           `gh api repos/${repo}/contents/${file.path} --jq .content`,
           { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
@@ -144,9 +149,9 @@ switch (command) {
         const decoded = Buffer.from(content.replace(/\n/g, ""), "base64").toString("utf-8");
         writeFileSync(resolve(outDir, file.name), decoded);
         console.log(`  Fetched ${file.name}`);
+      } catch {
+        console.log(`  Failed to fetch ${file.name}, skipping.`);
       }
-    } catch {
-      console.log("  No existing machine data files found (first run).");
     }
 
     // 2. generate: 이 컴퓨터 데이터 수집 + 모든 data-*.json 합산 → data.json 생성
