@@ -75,11 +75,30 @@ if (!mergeOnly) {
   }
   const { daily } = JSON.parse(raw);
 
-  const costs = daily.map((d) => d.totalCost);
-  const maxCost = Math.max(...costs);
+  // Build a map of existing data, merging duplicate dates by summing
+  const dataMap = new Map();
+  for (const d of daily) {
+    if (!dataMap.has(d.date)) {
+      dataMap.set(d.date, { ...d });
+    } else {
+      const existing = dataMap.get(d.date);
+      existing.totalCost = (existing.totalCost ?? 0) + (d.totalCost ?? 0);
+      existing.inputTokens = (existing.inputTokens ?? 0) + (d.inputTokens ?? 0);
+      existing.outputTokens = (existing.outputTokens ?? 0) + (d.outputTokens ?? 0);
+      existing.totalTokens = (existing.totalTokens ?? 0) + (d.totalTokens ?? 0);
+      existing.cacheReadTokens = (existing.cacheReadTokens ?? 0) + (d.cacheReadTokens ?? 0);
+      existing.cacheCreationTokens = (existing.cacheCreationTokens ?? 0) + (d.cacheCreationTokens ?? 0);
+      existing.modelsUsed = [...new Set([...(existing.modelsUsed ?? []), ...(d.modelsUsed ?? [])])];
+      const bdMap = new Map((existing.modelBreakdowns ?? []).map((m) => [m.modelName, m.cost ?? 0]));
+      for (const mb of (d.modelBreakdowns ?? [])) {
+        bdMap.set(mb.modelName, (bdMap.get(mb.modelName) ?? 0) + (mb.cost ?? 0));
+      }
+      existing.modelBreakdowns = [...bdMap.entries()].map(([modelName, cost]) => ({ modelName, cost }));
+    }
+  }
 
-  // Build a map of existing data
-  const dataMap = new Map(daily.map((d) => [d.date, d]));
+  const costs = [...dataMap.values()].map((d) => d.totalCost);
+  const maxCost = Math.max(...costs);
 
   // Fill 365 days (from today back 364 days)
   const today = new Date();
