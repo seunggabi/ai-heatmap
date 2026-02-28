@@ -132,7 +132,7 @@ readmeLines.push(
   "CLAUDE_CODE_OAUTH_TOKEN=sk-ant-xxx",
   "GH_TOKEN=ghp_xxx",
   "",
-  "0 0 * * * npx --yes ai-heatmap@latest update",
+  "0 0 * * * npx clear-npx-cache && npx --yes ai-heatmap@latest update",
   "```",
   "",
   `## [Dynamic SVG (by Vercel)](https://${repoName}.vercel.app/)`,
