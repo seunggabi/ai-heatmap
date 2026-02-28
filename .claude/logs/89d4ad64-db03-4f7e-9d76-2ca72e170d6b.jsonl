@@ -1,0 +1,19 @@
+{"timestamp":"2026-02-28T14:23:28.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"npx --yes ai-heatmap@latest update --name=mac 이렇게 실행하도록 update 에서도 넣어줘 update 가 실행될때 generate 되긴하거든","status":"success"}
+{"timestamp":"2026-02-28T14:24:10.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T14:55:05.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"npx --yes ai-heatmap@latest update name 없이 실행하면 디폴트 값으로 해주면되는데 컴퓨터 마다 고유 식별자 ? 아이피? 로 하면될듯한데 더나은게 있나 ? 그리고","status":"success"}
+{"timestamp":"2026-02-28T15:00:45.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"지금 os.hostname()?","status":"success"}
+{"timestamp":"2026-02-28T15:02:43.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"맥북 여러개 쓰는데 이름이 동일할 수도 있어서","status":"success"}
+{"timestamp":"2026-02-28T15:04:14.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"맥북이 아닐수도 잇음","status":"success"}
+{"timestamp":"2026-02-28T15:06:43.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T15:13:33.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"npm push 된건가 ?","status":"success"}
+{"timestamp":"2026-02-28T15:25:36.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T15:34:33.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T15:41:10.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T15:49:47.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"readme 에 npx not found 도 수정","status":"success"}
+{"timestamp":"2026-02-28T15:50:43.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt","status":"success"}
+{"timestamp":"2026-02-28T16:18:36.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"merge 안되는데 룰어디 있지 ?","status":"success"}
+{"timestamp":"2026-02-28T16:20:58.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"2","status":"success"}
+{"timestamp":"2026-02-28T16:29:24.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"## [Dynamic SVG (by Vercel)](https://seunggabi-ai-heatmap.vercel.app/) 여기다 그냥 넣으면 될거 같아","status":"success"}
+{"timestamp":"2026-02-28T16:30:28.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T16:40:31.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T16:41:18.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"그냥 update 호출할때 머지되는거 맞지 ?","status":"success"}

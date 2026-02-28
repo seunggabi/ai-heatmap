@@ -1,0 +1,24 @@
+{"timestamp":"2026-02-28T16:41:52.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T16:42:18.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"npm publish 안된ㄷ거 같은데","status":"success"}
+{"timestamp":"2026-02-28T16:45:47.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T16:54:12.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"public/data-*.json 파일 받은다음 + 새로 data-*.json 만들고 -> data.json 머지하고 data-*.json push 해야해","status":"success"}
+{"timestamp":"2026-02-28T16:57:14.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"data-*.json 받고 com에서 만들 data-{xxx}.json 만들고 merge 해서 data.json 만들고 data-{xxx}.json data.json upload","status":"success"}
+{"timestamp":"2026-02-28T16:58:09.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"지금 그렇게 동작 안하는듯 update 된 json 보면 data.json 만 올라가 있어","status":"success"}
+{"timestamp":"2026-02-28T17:08:22.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"https://github.com/seunggabi/seunggabi-ai-heatmap/tree/main/public 여기보면 업로드 안되어 잇음","status":"success"}
+{"timestamp":"2026-02-28T17:08:39.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"그리고 file 2개인데 머지 대상 1개임","status":"success"}
+{"timestamp":"2026-02-28T17:13:19.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"아니 machine file 은 push 가 안됨","status":"success"}
+{"timestamp":"2026-02-28T17:28:45.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"캐시 문제였네 readme 에 추가해줘","status":"success"}
+{"timestamp":"2026-02-28T17:32:33.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"init.mjs 에도 추가","status":"success"}
+{"timestamp":"2026-02-28T17:36:41.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"deploy 에도 ","status":"success"}
+{"timestamp":"2026-02-28T17:45:06.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T18:11:41.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"머지가 안돼 .. \"date\": \"2026-02-27\", 날짜가 같으면 머지해야해","status":"success"}
+{"timestamp":"2026-02-28T18:25:56.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T18:37:34.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T18:42:49.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"아직 data 가 같으면 덮어씌워지는데 ?","status":"success"}
+{"timestamp":"2026-02-28T18:52:22.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"제대로 머지 되는게 맞아 ?","status":"success"}
+{"timestamp":"2026-02-28T18:54:08.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
+{"timestamp":"2026-02-28T18:54:32.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"2026-02-21 합산해줘봐","status":"success"}
+{"timestamp":"2026-02-28T18:54:57.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"잘되네 ","status":"success"}
+{"timestamp":"2026-02-28T18:55:29.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"그럼 npx --yes clear-npx-cache && npx --yes ai-heatmap@latest update 실행한다음 배포전에 비교해봐 사이즈 ","status":"success"}
+{"timestamp":"2026-02-28T19:03:21.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"메모리에 기록해주고 글작성해줘 md 로 ~/sg/trouble-shooting/ 기록하고자함","status":"success"}
+{"timestamp":"2026-02-28T19:15:43.000Z","cwd":"/Users/seunggabi/sg/ai-heatmap","tool":"UserPrompt","command":"/cppdt ","status":"success"}
