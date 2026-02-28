@@ -145,7 +145,11 @@ switch (command) {
     }
 
     // 2. generate: 이 컴퓨터 데이터 수집 + 모든 data-*.json 합산 → data.json 생성
-    execSync(`node ${genScript} ${genArgs.join(" ")}`, { stdio: "inherit" });
+    // machineName을 명시적으로 전달해 cli.mjs와 generate.mjs가 동일한 값을 사용하도록 보장
+    const genArgsWithName = genArgs.some((a) => a.startsWith("--name="))
+      ? genArgs
+      : [`--name=${machineName}`, ...genArgs];
+    execSync(`node ${genScript} ${genArgsWithName.join(" ")}`, { stdio: "inherit" });
 
     // 3. data-{name}.json push (이 컴퓨터 개별 파일)
     const machineFile = `data-${machineName}.json`;
